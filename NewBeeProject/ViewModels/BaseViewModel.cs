@@ -29,5 +29,9 @@ namespace NewBeeProject.ViewModels
         {
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Profile}");
         }
+        public async Task GoToRegistration()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
+        }
     }
 }

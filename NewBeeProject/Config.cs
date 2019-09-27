@@ -6,8 +6,8 @@ namespace NewBeeProject
 {
     public static class Config
     {
-        public static string APIURL = "api-newbee.herokuapp.com";
-        public static string StudentEndpoint = "/student";
+        
+        public const string APIURL = "http://api-newbee.herokuapp.com";
 
     }
 }

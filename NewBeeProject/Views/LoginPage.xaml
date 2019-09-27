@@ -21,15 +21,17 @@
             <Button x:Name="loginbtn"
                     Style="{StaticResource MainButton}"
                     Text="Login"
-                    Command="{Binding NavHomeCommand}" />
+                    Command="{Binding LoginCommand}" />
 
-            <Label VerticalOptions="CenterAndExpand"
+            <Button
+                BackgroundColor="Transparent"
+                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
                    Text="Register"
+                FontAttributes="Bold"
+                Command="{Binding NavRegisterCommand}"
                    TextColor="{StaticResource Primary}"
-                   FontSize="20"
-                   TextDecorations="Underline">
-            </Label>
+                   FontSize="20" />
 
         </StackLayout>
     </ScrollView>

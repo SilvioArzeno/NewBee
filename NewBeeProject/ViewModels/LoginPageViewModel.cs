@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using NewBeeProject.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,27 @@ namespace NewBeeProject.ViewModels
 {
     public class LoginPageViewModel: BaseViewModel
     {
-        public DelegateCommand NavHomeCommand { get; set; }
+        public DelegateCommand LoginCommand { get; set; }
+        public string UserID { get; set; }
+        public string Password { get; set; }
+        public DelegateCommand NavRegisterCommand { get; set; }
         public LoginPageViewModel(INavigationService navigationService): base (navigationService)
         {
+            APIService service = new APIService();
 
-            NavHomeCommand = new DelegateCommand(async () =>
+            LoginCommand = new DelegateCommand(async () =>
               {
-                  await AbsoluteGoToHome();
+                  if (await service.CheckLogin(UserID, Password))
+                  {
+                      await AbsoluteGoToHome();
+                  }
+                  await GoToRegistration();
               });
+
+            NavRegisterCommand = new DelegateCommand(async () =>
+           {
+               await GoToRegistration();
+           });
         }
     }
 }

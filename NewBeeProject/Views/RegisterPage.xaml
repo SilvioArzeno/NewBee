@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.RegisterPage">
+             x:Class="NewBeeProject.Views.RegisterPage"
+             NavigationPage.HasBackButton="True">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
 
@@ -27,6 +28,7 @@
                    x:Name="IDEntry"
                    Margin="20,0" />
             <Entry Placeholder="Password"
+                   Text="{Binding RegisteredStudent.Password}"
                    x:Name="PassWordEntry"
                    Margin="20,0"
                    IsPassword="true" />
@@ -38,7 +40,7 @@
             <Button x:Name="RegisterButton"
                     Style="{StaticResource MainButton}"
                     Text="Register"
-                    Command="{Binding RegisterStudent}" />
+                    Command="{Binding RegisterStudentCommand}" />
 
         </StackLayout>
     </ContentPage.Content>

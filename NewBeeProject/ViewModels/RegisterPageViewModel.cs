@@ -1,4 +1,5 @@
 ﻿using NewBeeProject.Models;
+using NewBeeProject.Services;
 using Prism.Commands;
 using Prism.Navigation;
 using System;
@@ -11,14 +12,17 @@ namespace NewBeeProject.ViewModels
     public class RegisterPageViewModel : BaseViewModel
     {
         public Student RegisteredStudent { get; set; }
-        public DelegateCommand RegisterStudent { get; set; }
+        public DelegateCommand RegisterStudentCommand { get; set; }
         public RegisterPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-
-            RegisterStudent = new DelegateCommand(async () =>
+            RegisteredStudent = new Student();
+            APIService service = new APIService();
+            RegisterStudentCommand = new DelegateCommand(async () =>
             {
-
-                await AbsoluteGoToHome();
+                if (await service.RegisterStudent(RegisteredStudent))
+                    await AbsoluteGoToHome();
+                else
+                    await GoBack();
             });
         }
 
