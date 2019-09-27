@@ -10,11 +10,13 @@
 
             <Entry Placeholder="Email"
                    x:Name="email"
+                   Text="{Binding UserID}"
                    Margin="20,0"
                    Keyboard="Email" />
 
             <Entry Placeholder="Password"
                    x:Name="password"
+                   Text="{Binding Password}"
                    Margin="20,0"
                    IsPassword="true" />
 

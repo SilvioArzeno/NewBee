@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using NewBeeProject.Models;
+using Newtonsoft.Json;
 using Refit;
 
 namespace NewBeeProject.Services
@@ -23,13 +24,14 @@ namespace NewBeeProject.Services
         async public Task<bool> RegisterStudent(Student NewStudent)
         {
             var apiResponse = RestService.For<IAPIService>(Config.APIURL);
-            var RegisterStudent = await apiResponse.RegisterStudent(NewStudent);
+            var JsonStudent = JsonConvert.SerializeObject(NewStudent);
+            await apiResponse.RegisterStudent(JsonStudent);
 
-            if (RegisterStudent.Equals(NewStudent))
+           /* if (RegisterStudent.Equals(NewStudent))
             {
                 return true;
             }
-
+            */
             return false;
         }
     }

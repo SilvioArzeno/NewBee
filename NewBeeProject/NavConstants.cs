@@ -10,6 +10,8 @@ namespace NewBeeProject
         public static string Home = "HomePage";
         public static string HomeMasterDetail = "HomeMasterDetailPage";
         public static string Profile = "ProfilePage";
+        public static string Map = "MapPage";
+        public static string Task = "TaskPage";
         public static string Registration = "RegisterPage";
         public static string Navigation = "NavigationPage";
     }

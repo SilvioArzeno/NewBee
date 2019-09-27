@@ -13,6 +13,12 @@
                 <Button Style="{StaticResource MenuButton}"
                         Text="Profile"
                         Command="{Binding NavProfileCommand}" />
+                <Button Style="{StaticResource MenuButton}"
+                        Text="Map"
+                        Command="{Binding NavMapCommand}" />
+                <Button Style="{StaticResource MenuButton}"
+                        Text="Tasks"
+                        Command="{Binding NavTaskCommand}" />
                 <BoxView HeightRequest="1"
                          Color="{StaticResource Dark}" />
             </StackLayout>

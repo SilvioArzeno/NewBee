@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace NewBeeProject.Services
 {
+    [Headers("Content-Type: application/json")]
     public interface IAPIService
     {
         [Get("")]
         Task VerifyConnection();
 
         [Post("/student")]
-        Task<Student> RegisterStudent([Body] Student NewStudent);
+        Task<string> RegisterStudent([Body] string NewStudent);
 
         [Get("/student/{matricula}")]
         Task<Student> GetStudent(string matricula);

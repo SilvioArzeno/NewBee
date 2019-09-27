@@ -25,6 +25,14 @@ namespace NewBeeProject.ViewModels
         {
             await _navigationService.NavigateAsync($"{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}");
         }
+        public async Task GoToMap()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Map}");
+        }
+        public async Task GoToTasks()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Task}");
+        }
         public async Task GoToProfile()
         {
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Profile}");
