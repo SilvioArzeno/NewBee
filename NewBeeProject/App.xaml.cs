@@ -1,8 +1,10 @@
 ﻿using NewBeeProject.ViewModels;
+using NewBeeProject.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
+using Xamarin.Forms;
 
 namespace NewBeeProject
 {
@@ -19,6 +21,13 @@ namespace NewBeeProject
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<HomeMasterDetailPage, HomeMasterDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<ProfilePage, ProfilePageViewModel>();
+
+
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+
         }
     }
 }

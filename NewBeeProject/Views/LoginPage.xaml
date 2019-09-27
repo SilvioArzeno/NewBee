@@ -5,13 +5,32 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NewBeeProject.LoginPage">
+    <ScrollView>
+        <StackLayout VerticalOptions="Center">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Prism installed"
-               TextColor="Blue"
-               HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+            <Entry Placeholder="Email"
+                   x:Name="email"
+                   Margin="20,0"
+                   Keyboard="Email" />
 
+            <Entry Placeholder="Password"
+                   x:Name="password"
+                   Margin="20,0"
+                   IsPassword="true" />
+
+            <Button x:Name="loginbtn"
+                    Style="{StaticResource MainButton}"
+                    Text="Login"
+                    Command="{Binding NavHomeCommand}" />
+
+            <Label VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Register"
+                   TextColor="{StaticResource Primary}"
+                   FontSize="20"
+                   TextDecorations="Underline">
+            </Label>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

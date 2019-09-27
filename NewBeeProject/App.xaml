@@ -8,5 +8,35 @@
              x:Class="NewBeeProject.App">
     <Application.Resources>
 
+        <Color x:Key="Primary">#033F63</Color>
+        <Color x:Key="Secondary">#003F91</Color>
+        <Color x:Key="Dark">#1C1C1C</Color>
+
+        <Style x:Key="MainButton"
+               TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource Primary}" />
+            <Setter Property="HeightRequest"
+                    Value="45" />
+            <Setter Property="Margin"
+                    Value="20,10" />
+            <Setter Property="TextColor"
+                    Value="White" />
+            <Setter Property="CornerRadius"
+                    Value="10" />
+        </Style>
+
+        <Style x:Key="MenuButton"
+               TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="Transparent" />
+            <Setter Property="HeightRequest"
+                    Value="45" />
+            <Setter Property="Margin"
+                    Value="0,0" />
+            <Setter Property="TextColor"
+                    Value="{StaticResource Dark}" />
+        </Style>
+
     </Application.Resources>
 </prism:PrismApplication>
