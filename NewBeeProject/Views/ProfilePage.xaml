@@ -12,7 +12,6 @@
                    HorizontalOptions="CenterAndExpand" />
 
             <Button x:Name="loginbtn"
-                    Margin="80,0,0,0"
                     Style="{StaticResource MainButton}"
                     Text="Edit Profile"
                     Command="{Binding NavEditPtofileCommand}" />
