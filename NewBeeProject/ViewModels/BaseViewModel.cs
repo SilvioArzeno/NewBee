@@ -41,5 +41,25 @@ namespace NewBeeProject.ViewModels
         {
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
         }
+        public async Task GoToAddCourse()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.AddCourse}");
+        }
+        public async Task GoToAddTask()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.AddTask}");
+        }
+        public async Task GoToCourseDetail()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.CourseDetail}");
+        }
+        public async Task GoToEditProfile()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.EditProfile}");
+        }
+        public async Task GoToPhoneNumbers()
+        {
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.PhoneNumbers}");
+        }
     }
 }

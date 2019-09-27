@@ -27,6 +27,12 @@ namespace NewBeeProject
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
             containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
             containerRegistry.RegisterForNavigation<TaskPage, TaskPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddCoursePage, AddCoursePageViewModel>();
+            containerRegistry.RegisterForNavigation<AddTaskPage, AddTaskPageViewModel>();
+            containerRegistry.RegisterForNavigation<CourseDetailPage, CourseDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
+            containerRegistry.RegisterForNavigation<PhoneNumbersPage, PhoneNumbersPageViewModel>();
+
 
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
