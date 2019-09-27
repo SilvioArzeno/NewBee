@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NewBeeProject.Views.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+
+            <Entry Placeholder="First Name"
+                   Text="{Binding RegisteredStudent.Nombres}"
+                   x:Name="FNameEntry"
+                   Margin="20,0" />
+            
+            <Entry Placeholder="Last Name"
+                   Text="{Binding RegisteredStudent.Apellidos}"
+                   x:Name="LNameEntry"
+                   Margin="20,0" />
+            <Entry Placeholder="Email"
+                   Text="{Binding RegisteredStudent.Email}"
+                   x:Name="EmailEntry"
+                   Keyboard="Email"
+                   Margin="20,0" />
+            <Entry Placeholder="Student ID"
+                   Text="{Binding RegisteredStudent.Matricula}"
+                   x:Name="IDEntry"
+                   Margin="20,0" />
+            <Entry Placeholder="Password"
+                   x:Name="PassWordEntry"
+                   Margin="20,0"
+                   IsPassword="true" />
+            <Entry Placeholder="Confirm Password"
+                   x:Name="ConfirmPasswordEntry"
+                   Margin="20,0"
+                   IsPassword="true" />
+
+            <Button x:Name="RegisterButton"
+                    Style="{StaticResource MainButton}"
+                    Text="Register"
+                    Command="{Binding RegisterStudent}" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
