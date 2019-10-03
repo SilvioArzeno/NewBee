@@ -12,6 +12,11 @@
         <Color x:Key="Secondary">#003F91</Color>
         <Color x:Key="Dark">#1C1C1C</Color>
 
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor"
+                    Value="{StaticResource Primary}" />
+        </Style>
+
         <Style x:Key="MainButton"
                TargetType="Button">
             <Setter Property="BackgroundColor"

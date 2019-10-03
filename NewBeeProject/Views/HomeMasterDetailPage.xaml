@@ -7,45 +7,23 @@
              x:Class="NewBeeProject.Views.HomeMasterDetailPage">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
-            <StackLayout VerticalOptions="EndAndExpand">
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Home"
-                        Command="{Binding NavHomeCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}"/>
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Profile"
-                        Command="{Binding NavProfileCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Map"
-                        Command="{Binding NavMapCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Tasks"
-                        Command="{Binding NavTaskCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Add Course"
-                        Command="{Binding NavAddCourseCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Add Task"
-                        Command="{Binding NavAddTaskCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-                <Button Style="{StaticResource MenuButton}"
-                        Text="Area Phone Numbers"
-                        Command="{Binding NavPhoneNumbersCommand}" />
-                <BoxView HeightRequest="1"
-                         Color="{StaticResource Dark}" />
-            </StackLayout>
+            <ListView ItemsSource="{Binding MasterDetailMenuItems}"
+                      x:Name="listv"
+                      SelectedItem="{Binding SelectedMenuItem}"
+                      SeparatorColor="{StaticResource Dark}"
+                      VerticalOptions="EndAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Title}"
+                                   TextColor="{StaticResource Dark}"
+                                   FontSize="20"
+                                   VerticalTextAlignment="Center"
+                                   Margin="10,0,0,0"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ContentPage>
     </MasterDetailPage.Master>
 </MasterDetailPage>

@@ -21,45 +21,9 @@ namespace NewBeeProject.ViewModels
         {
             await _navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute));
         }
-        public async Task RelativeGoToHome()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}");
-        }
-        public async Task GoToMap()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Map}");
-        }
-        public async Task GoToTasks()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Task}");
-        }
-        public async Task GoToProfile()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Profile}");
-        }
         public async Task GoToRegistration()
         {
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
-        }
-        public async Task GoToAddCourse()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.AddCourse}");
-        }
-        public async Task GoToAddTask()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.AddTask}");
-        }
-        public async Task GoToCourseDetail()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.CourseDetail}");
-        }
-        public async Task GoToEditProfile()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.EditProfile}");
-        }
-        public async Task GoToPhoneNumbers()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.PhoneNumbers}");
         }
     }
 }

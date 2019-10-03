@@ -1,51 +1,53 @@
-﻿using Prism.Commands;
+﻿using NewBeeProject.Models;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace NewBeeProject.ViewModels
 {
-    public class HomeMasterDetailPageViewModel : BaseViewModel
+    public class HomeMasterDetailPageViewModel
     {
-        public DelegateCommand NavHomeCommand { get; set; }
-        public DelegateCommand NavProfileCommand { get; set; }
-        public DelegateCommand NavMapCommand { get; set; }
-        public DelegateCommand NavTaskCommand { get; set; }
-        public DelegateCommand NavAddCourseCommand { get; set; }
-        public DelegateCommand NavAddTaskCommand { get; set; }
-        public DelegateCommand NavPhoneNumbersCommand { get; set; }
+        INavigationService _navigationService;
 
-        public HomeMasterDetailPageViewModel(INavigationService navigationService) : base(navigationService)
+        MasterDetailMenuItem MenuItem;
+        public MasterDetailMenuItem SelectedMenuItem
         {
-            NavHomeCommand = new DelegateCommand(async () =>
+            get { return MenuItem; }
+            set
             {
-                await RelativeGoToHome();
-            });
-            NavProfileCommand = new DelegateCommand(async () =>
+                MenuItem = value;
+                if (MenuItem != null)
+                    _ = OnSelectItemAsync(MenuItem);
+            }
+        }
+        public ObservableCollection<MasterDetailMenuItem> MasterDetailMenuItems { get; set; }
+
+        public HomeMasterDetailPageViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+
+            MenuItems();
+        }
+        async System.Threading.Tasks.Task OnSelectItemAsync(MasterDetailMenuItem MenuItem)
+        {
+            await _navigationService.NavigateAsync($"{MenuItem.TargetPage}");
+        }
+        private void MenuItems()
+        {
+            MasterDetailMenuItems = new ObservableCollection<MasterDetailMenuItem>()
             {
-                await GoToProfile();
-            });
-            NavMapCommand = new DelegateCommand(async () =>
-            {
-                await GoToMap();
-            });
-            NavTaskCommand = new DelegateCommand(async () =>
-            {
-                await GoToTasks();
-            });
-            NavAddTaskCommand = new DelegateCommand(async () =>
-            {
-                await GoToAddTask();
-            });
-            NavAddCourseCommand = new DelegateCommand(async () =>
-            {
-                await GoToAddCourse();
-            });
-            NavPhoneNumbersCommand = new DelegateCommand(async () =>
-            {
-                await GoToPhoneNumbers();
-            });
+                new MasterDetailMenuItem{Title = NavMenu.HomePage, TargetPage = NavConstants.Home},
+                new MasterDetailMenuItem{Title = NavMenu.ProfilePage, TargetPage = NavConstants.Profile},
+                new MasterDetailMenuItem{Title = NavMenu.MapPage, TargetPage = NavConstants.Map},
+                new MasterDetailMenuItem{Title = NavMenu.TaskPage, TargetPage = NavConstants.Task},
+                new MasterDetailMenuItem{Title = NavMenu.AddCoursePage, TargetPage = NavConstants.AddCourse},
+                new MasterDetailMenuItem{Title = NavMenu.AddTaskPage, TargetPage = NavConstants.AddTask},
+                new MasterDetailMenuItem{Title = NavMenu.PhoneNumbersPage, TargetPage = NavConstants.PhoneNumbers},
+                new MasterDetailMenuItem{Title = NavMenu.Logout, TargetPage = null}
+            };
         }
     }
 }
