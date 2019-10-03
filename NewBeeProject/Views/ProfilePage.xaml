@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="NewBeeProject.Views.ProfilePage">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand">
+        <StackLayout HorizontalOptions="Center">
             <Label Text="Welcome to ProfilePage!"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand" />

@@ -22,4 +22,16 @@ namespace NewBeeProject
 
         public static string Navigation = "NavigationPage";
     }
+    public static class NavMenu
+    {
+        public static string HomePage = "Home";
+        public static string ProfilePage = "Profile";
+        public static string MapPage = "Map";
+        public static string TaskPage = "Tasks";
+        public static string AddCoursePage = "Add Course";
+        public static string AddTaskPage = "Add Task";
+        public static string PhoneNumbersPage = "Area Phone Numbers";
+
+        public static string Logout = "Log out";
+    }
 }
