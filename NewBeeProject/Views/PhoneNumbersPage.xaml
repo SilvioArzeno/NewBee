@@ -6,10 +6,30 @@
              mc:Ignorable="d"
              x:Class="NewBeeProject.Views.PhoneNumbersPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to PhoneNumbersPage!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <ListView ItemsSource="{Binding MasterDetailMenuItems}"
+                          x:Name="listv"
+                          SelectedItem="{Binding SelectedMenuItem}"
+                          SeparatorColor="{StaticResource Dark}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text=""
+                                       TextColor="{StaticResource Primary}"
+                                       FontSize="20"
+                                       VerticalTextAlignment="Center"
+                                       Margin="10,0,0,0" />
+                                <Label Text=""
+                                       TextColor="{StaticResource Primary}"
+                                       FontSize="20"
+                                       VerticalTextAlignment="Center"
+                                       Margin="10,0" />
+                            </StackLayout>
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

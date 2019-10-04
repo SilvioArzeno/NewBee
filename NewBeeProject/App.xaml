@@ -43,5 +43,17 @@
                     Value="{StaticResource Dark}" />
         </Style>
 
+        <Style x:Key="ProfileLabel"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{StaticResource Primary}"/>
+            <Setter Property="FontSize"
+                    Value="20" />
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+            <Setter Property="Margin"
+                    Value="10,0" />
+        </Style>
+
     </Application.Resources>
 </prism:PrismApplication>
