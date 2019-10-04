@@ -7,9 +7,28 @@
              x:Class="NewBeeProject.Views.CourseDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to CourseDetailPage!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Bind Course"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="22"
+                   TextColor="{StaticResource Primary}"
+                   FontAttributes="Bold"
+                   Margin="10"/>
+            
+            <Label Text="Bind Description"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="18"
+                   TextColor="{StaticResource Secondary}"
+                   Margin="10" />
+            
+            <Button Style="{StaticResource MainButton}"
+                    Text="View Map"
+                    Command="{Binding MapCommand}" />
+            
+            <Button Style="{StaticResource MainButton}"
+                    Text="Call Area"
+                    Command="{Binding CallCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
