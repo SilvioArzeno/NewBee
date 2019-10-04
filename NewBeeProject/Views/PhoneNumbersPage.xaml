@@ -7,7 +7,7 @@
              x:Class="NewBeeProject.Views.PhoneNumbersPage">
     <ContentPage.Content>
         <ScrollView>
-            <ListView ItemsSource="{Binding AreasPhoneslv}"
+            <ListView ItemsSource="bind phones ares model"
                           x:Name="listv"
                           SelectedItem="{Binding SelectedPhone}"
                           SeparatorColor="{StaticResource Dark}">
