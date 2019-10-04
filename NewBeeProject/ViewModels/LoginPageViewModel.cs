@@ -19,17 +19,13 @@ namespace NewBeeProject.ViewModels
 
             LoginCommand = new DelegateCommand(async () =>
               {
-                  if (await service.CheckLogin(UserID, Password))
-                  {
-                      await AbsoluteGoToHome();
-                  }
-                  await GoToRegistration();
+                  await AbsoluteGoToHome();
               });
 
             NavRegisterCommand = new DelegateCommand(async () =>
-           {
+            {
                await GoToRegistration();
-           });
+            });
         }
     }
 }
