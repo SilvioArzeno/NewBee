@@ -25,16 +25,16 @@
                     Text="Login"
                     Command="{Binding LoginCommand}" />
 
-            <Button
-                BackgroundColor="Transparent"
-                    VerticalOptions="CenterAndExpand"
+            <Label VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
                    Text="Register"
-                FontAttributes="Bold"
-                Command="{Binding NavRegisterCommand}"
                    TextColor="{StaticResource Primary}"
-                   FontSize="20" />
-
+                   FontSize="20"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavRegisterCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </ScrollView>
 </ContentPage>

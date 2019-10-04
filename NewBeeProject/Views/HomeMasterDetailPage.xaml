@@ -7,23 +7,47 @@
              x:Class="NewBeeProject.Views.HomeMasterDetailPage">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
-            <ListView ItemsSource="{Binding MasterDetailMenuItems}"
-                      x:Name="listv"
-                      SelectedItem="{Binding SelectedMenuItem}"
-                      SeparatorColor="{StaticResource Dark}"
-                      VerticalOptions="EndAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding Title}"
-                                   TextColor="{StaticResource Dark}"
-                                   FontSize="20"
-                                   VerticalTextAlignment="Center"
-                                   Margin="10,0,0,0"/>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Grid BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="{StaticResource Primary}">
+                    <StackLayout Padding="0,20,0,0"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                                 Grid.Row="0">
+                        <Image Source=""
+                               Aspect="AspectFill"
+                               WidthRequest="85"
+                               HeightRequest="85" />
+                        <Label Text="Name"
+                               TextColor="White"
+                               FontSize="Large"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Margin="20,20,20,0"
+                             Grid.Row="1"
+                             Spacing="15">
+                    <ListView ItemsSource="{Binding MasterDetailMenuItems}"
+                              x:Name="listv"
+                              SelectedItem="{Binding SelectedMenuItem}"
+                              SeparatorColor="{StaticResource Dark}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding Title}"
+                                           TextColor="{StaticResource Dark}"
+                                           FontSize="20"
+                                           VerticalTextAlignment="Center"
+                                           Margin="10,0,0,0" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
         </ContentPage>
     </MasterDetailPage.Master>
 </MasterDetailPage>

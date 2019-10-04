@@ -6,10 +6,57 @@
              mc:Ignorable="d"
              x:Class="NewBeeProject.Views.EditProfilePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to EditProfilePage!"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="{StaticResource Primary}">
+                    <StackLayout Padding="0,20,0,0"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                                 Grid.Row="0">
+                        <Image Source=""
+                               Aspect="AspectFill"
+                               WidthRequest="85"
+                               HeightRequest="85" />
+                        <Label Text="Name"
+                               TextColor="White"
+                               FontSize="Large"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Grid.Row="1">
+                    <Label Text="First Name"
+                           Style="{StaticResource ProfileLabel}" />
+                    <Entry Text="{Binding RegisteredStudent.Nombres}"
+                           x:Name="FNameEntry"
+                           Margin="10,0"/>
+
+                    <Label Text="Last Name"
+                           Style="{StaticResource ProfileLabel}" />
+                    <Entry Text="{Binding RegisteredStudent.Apellidos}"
+                           x:Name="LNameEntry"
+                           Margin="10,0"/>
+
+                    <Label Text="Email"
+                           Style="{StaticResource ProfileLabel}" />
+                    <Entry Text="{Binding RegisteredStudent.Email}"
+                           x:Name="EmailEntry"
+                           Keyboard="Email"
+                           Margin="10,0"/>
+
+                    <Label Text="Student ID"
+                           Style="{StaticResource ProfileLabel}" />
+                    <Entry Text="{Binding RegisteredStudent.Matricula}"
+                           x:Name="IDEntry"
+                           Margin="10,0"/>
+
+                    <Button Style="{StaticResource MainButton}"
+                            Text="Save Profile" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

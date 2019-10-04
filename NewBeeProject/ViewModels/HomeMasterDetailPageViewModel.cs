@@ -33,7 +33,7 @@ namespace NewBeeProject.ViewModels
         }
         async System.Threading.Tasks.Task OnSelectItemAsync(MasterDetailMenuItem MenuItem)
         {
-            await _navigationService.NavigateAsync($"{MenuItem.TargetPage}");
+            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{MenuItem.TargetPage}");
         }
         private void MenuItems()
         {
