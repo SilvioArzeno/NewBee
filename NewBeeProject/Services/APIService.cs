@@ -8,12 +8,12 @@ using Refit;
 
 namespace NewBeeProject.Services
 {
-    public class APIService
+    public class APIService : IAPIService
     {
-        async public Task<bool> CheckLogin(string matricula, string InsertedPassword)
+        async public Task<bool> CheckLogin(string UserID, string InsertedPassword)
         {
-            var apiResponse = RestService.For<IAPIService>(Config.APIURL);
-            var StudentResult = await apiResponse.GetStudent(matricula);
+            var apiResponse = RestService.For<IStudentAPI>(Config.APIURL);
+            var StudentResult = await apiResponse.GetStudent(UserID);
             if(StudentResult.Password == InsertedPassword)
             {
                 return true;
@@ -23,16 +23,12 @@ namespace NewBeeProject.Services
 
         async public Task<bool> RegisterStudent(Student NewStudent)
         {
-            var apiResponse = RestService.For<IAPIService>(Config.APIURL);
-            var JsonStudent = JsonConvert.SerializeObject(NewStudent);
-            await apiResponse.RegisterStudent(JsonStudent);
+            var apiResponse = RestService.For<IStudentAPI>(Config.APIURL);
+            await apiResponse.RegisterStudent(NewStudent);
 
-           /* if (RegisterStudent.Equals(NewStudent))
-            {
-                return true;
-            }
-            */
-            return false;
+
+    
+            return true;
         }
     }
  

@@ -8,7 +8,7 @@
     <ScrollView>
         <StackLayout VerticalOptions="Center">
 
-            <Entry Placeholder="Studen ID"
+            <Entry Placeholder="Student ID"
                    x:Name="StudentIDEntry"
                    Text="{Binding UserID}"
                    Margin="20,0"/>
