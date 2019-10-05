@@ -13,7 +13,7 @@ namespace NewBeeProject.ViewModels
         public string UserID { get; set; }
         public string Password { get; set; }
         public DelegateCommand NavRegisterCommand { get; set; }
-        public LoginPageViewModel(IAPIService service) : base(service)
+        public LoginPageViewModel(INavigationService navigationService ,IAPIService APIservice) : base(navigationService,APIservice)
         {
 
             LoginCommand = new DelegateCommand(async () =>
@@ -21,11 +21,13 @@ namespace NewBeeProject.ViewModels
                  
                   if(!string.IsNullOrEmpty(UserID) || !string.IsNullOrEmpty(Password))
                   {
-                      if (await service.CheckLogin(UserID, Password))
+                      if (await APIservice.CheckLogin(UserID, Password))
                       {
                          
                           await AbsoluteGoToHome();
                       }
+
+                      //TODO: Incorrect password error message
                   }
               });
 

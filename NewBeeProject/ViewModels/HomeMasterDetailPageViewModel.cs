@@ -33,8 +33,18 @@ namespace NewBeeProject.ViewModels
         }
         async System.Threading.Tasks.Task OnSelectItemAsync(MasterDetailMenuItem MenuItem)
         {
+            if (MenuItem.Title.Equals(NavMenu.Logout))
+                Logout();
+
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{MenuItem.TargetPage}");
         }
+
+       async void Logout()
+        {
+            string test = _navigationService.GetNavigationUriPath();
+            await _navigationService.NavigateAsync($"/{NavConstants.Login}");
+        }
+
         private void MenuItems()
         {
             MasterDetailMenuItems = new ObservableCollection<MasterDetailMenuItem>()

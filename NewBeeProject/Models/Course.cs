@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NewBeeProject.Models
 {
-    class Course
+    public class Course
     {
         [JsonProperty (PropertyName ="nombre")]
         public string CourseName { get; set; }

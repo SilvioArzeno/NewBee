@@ -1,34 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using System;
 using System.Threading.Tasks;
 using NewBeeProject.Models;
-using Newtonsoft.Json;
 using Refit;
+using Xamarin.Essentials;
 
 namespace NewBeeProject.Services
 {
     public class APIService : IAPIService
     {
+        NetworkAccess CurrentConnection = Connectivity.NetworkAccess;
+        INewBeeAPI ApiResponse = RestService.For<INewBeeAPI>(Config.APIURL);
         async public Task<bool> CheckLogin(string UserID, string InsertedPassword)
         {
-            var apiResponse = RestService.For<IStudentAPI>(Config.APIURL);
-            var StudentResult = await apiResponse.GetStudent(UserID);
-            if(StudentResult.Password == InsertedPassword)
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-                return true;
+                var StudentResult = await ApiResponse.GetStudent(UserID);
+                return (StudentResult.Password == InsertedPassword);
             }
+
+            //TODO: Display "No internet' message and go back
             return false;
         }
 
         async public Task<bool> RegisterStudent(Student NewStudent)
         {
-            var apiResponse = RestService.For<IStudentAPI>(Config.APIURL);
-            await apiResponse.RegisterStudent(NewStudent);
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                try
+                {
+                    await ApiResponse.RegisterStudent(NewStudent);
+                    return true;
+                }
+                catch (ApiException error)
+                {
 
+                    return false;
+                    // TODO: Error messages for different status codes
+                }
+            }
 
-    
-            return true;
+            //TODO: Display "No internet' message and go back
+            return false;
         }
     }
  

@@ -4,6 +4,7 @@ using NewBeeProject.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
+using Xamarin.Forms;
 
 namespace NewBeeProject
 {
@@ -27,6 +28,7 @@ namespace NewBeeProject
 
             //Register Types
             containerRegistry.RegisterSingleton<IAPIService, APIService>();
+  
 
             //Register Navigations
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
@@ -42,6 +44,7 @@ namespace NewBeeProject
             containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
             containerRegistry.RegisterForNavigation<PhoneNumbersPage, PhoneNumbersPageViewModel>();
 
+            containerRegistry.RegisterForNavigation<NavigationPage>();
         }
     }
 }

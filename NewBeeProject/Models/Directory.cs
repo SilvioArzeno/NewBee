@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NewBeeProject.Models
 {
-    class Directory
+    public class Directory
     {
         [JsonProperty(PropertyName = "area")]
         public string AreaName { get; set; }

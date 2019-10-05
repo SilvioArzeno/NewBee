@@ -10,10 +10,11 @@ namespace NewBeeProject.ViewModels
     public class BaseViewModel
     {
         INavigationService _navigationService;
-        IAPIService _service;
-        public BaseViewModel(IAPIService service)
+        IAPIService _APIservice;
+        public BaseViewModel(INavigationService navigationService,IAPIService APIservice)
         {
-            _service = service;
+            _navigationService = navigationService;
+            _APIservice = APIservice;
            
         }
         public async Task GoBack()
