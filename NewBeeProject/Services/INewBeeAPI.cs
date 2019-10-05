@@ -17,15 +17,15 @@ namespace NewBeeProject.Services
         Task<Student> GetStudent(string UserID);
 
         //Course endpoint
-        [Post(Config.CourseEndpoint)]
-        Task<bool> RegisterCourse([Body] Course NewCourse);
+        [Post("/materia")]
+        Task RegisterCourse([Body] Course NewCourse);
 
-        [Get(Config.CourseSearchEndpoint)]
+        [Get("/materia/{CourseID}")]
         Task<Course> GetCourse(string CourseID);
 
 
         //Directory endpoint
-        [Post(Config.DirectorySearchEndpoint)]
+        [Get("/directorio/{Area}")]
         Task<Directory> GetDirectory(string Area);
 
     }

@@ -15,5 +15,10 @@ namespace NewBeeProject.Services
 
         Task<bool> RegisterStudent(Student NewStudent);
 
+        Task<bool> RegisterCourse(Course NewCourse);
+
+        Task<Course> GetCourse(string CourseID);
+
+        Task<Directory> GetDirectory(string Area);
     }
 }

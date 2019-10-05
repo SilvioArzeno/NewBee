@@ -43,6 +43,53 @@ namespace NewBeeProject.Services
             //TODO: Display "No internet' message and go back
             return false;
         }
+
+
+        async public Task<bool> RegisterCourse(Course NewCourse)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                try
+                {
+                    await ApiResponse.RegisterCourse(NewCourse);
+                    return true;
+                }
+                catch (ApiException error)
+                {
+
+                    return false;
+                    // TODO: Error messages for different status codes
+                }
+            }
+
+            //TODO: Display "No internet' message and go back
+            return false;
+        }
+        async public Task<Course> GetCourse(string CourseID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var CourseResult = await ApiResponse.GetCourse(CourseID);
+                return CourseResult;
+            }
+
+            //TODO: Display "No internet' message and go back
+            return null;
+        }
+
+       async public Task<Directory> GetDirectory(string Area)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var DirectoryResult = await ApiResponse.GetDirectory(Area);
+                return DirectoryResult;
+            }
+
+            //TODO: Display "No internet' message and go back
+            return null;
+        }
+
+
     }
  
 }
