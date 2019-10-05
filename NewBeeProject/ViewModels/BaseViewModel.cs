@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using NewBeeProject.Services;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +10,11 @@ namespace NewBeeProject.ViewModels
     public class BaseViewModel
     {
         INavigationService _navigationService;
-        public BaseViewModel(INavigationService navigationService)
+        IAPIService _service;
+        public BaseViewModel(IAPIService service)
         {
-            _navigationService = navigationService;
+            _service = service;
+           
         }
         public async Task GoBack()
         {

@@ -1,10 +1,9 @@
-﻿using NewBeeProject.ViewModels;
+﻿using NewBeeProject.Services;
+using NewBeeProject.ViewModels;
 using NewBeeProject.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
-using System;
-using Xamarin.Forms;
 
 namespace NewBeeProject
 {
@@ -20,6 +19,16 @@ namespace NewBeeProject
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+
+            
+
+            //Register Instances
+            containerRegistry.RegisterInstance<IAPIService>(new APIService());
+
+            //Register Types
+            containerRegistry.RegisterSingleton<IAPIService, APIService>();
+
+            //Register Navigations
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<HomeMasterDetailPage, HomeMasterDetailPageViewModel>();
@@ -32,10 +41,6 @@ namespace NewBeeProject
             containerRegistry.RegisterForNavigation<CourseDetailPage, CourseDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
             containerRegistry.RegisterForNavigation<PhoneNumbersPage, PhoneNumbersPageViewModel>();
-
-
-
-            containerRegistry.RegisterForNavigation<NavigationPage>();
 
         }
     }

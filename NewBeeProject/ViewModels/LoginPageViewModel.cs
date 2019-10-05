@@ -13,11 +13,8 @@ namespace NewBeeProject.ViewModels
         public string UserID { get; set; }
         public string Password { get; set; }
         public DelegateCommand NavRegisterCommand { get; set; }
-        public LoginPageViewModel(INavigationService navigationService): base (navigationService)
+        public LoginPageViewModel(IAPIService service) : base(service)
         {
-
-            APIService service = new APIService();
-
 
             LoginCommand = new DelegateCommand(async () =>
               {
@@ -26,6 +23,7 @@ namespace NewBeeProject.ViewModels
                   {
                       if (await service.CheckLogin(UserID, Password))
                       {
+                         
                           await AbsoluteGoToHome();
                       }
                   }

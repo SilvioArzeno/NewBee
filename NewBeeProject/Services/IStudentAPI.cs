@@ -10,13 +10,10 @@ namespace NewBeeProject.Services
     public interface IStudentAPI
     {
 
-        [Get("")]
-        Task VerifyConnection();
-
-        [Post("/student")]
+        [Post(Config.StudentEndpoint)]
         Task<Student> RegisterStudent([Body] Student NewStudent);
 
-        [Get("/student/{UserID}")]
+        [Get(Config.StudentSearchEndpoint)]
         Task<Student> GetStudent(string UserID);
     }
 }
