@@ -15,7 +15,9 @@ namespace NewBeeProject.ViewModels
         public DelegateCommand NavRegisterCommand { get; set; }
         public LoginPageViewModel(INavigationService navigationService): base (navigationService)
         {
+
             APIService service = new APIService();
+
 
             LoginCommand = new DelegateCommand(async () =>
               {

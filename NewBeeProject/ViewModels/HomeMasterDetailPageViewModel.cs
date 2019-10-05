@@ -46,7 +46,7 @@ namespace NewBeeProject.ViewModels
                 new MasterDetailMenuItem{Title = NavMenu.AddCoursePage, TargetPage = NavConstants.AddCourse},
                 new MasterDetailMenuItem{Title = NavMenu.AddTaskPage, TargetPage = NavConstants.AddTask},
                 new MasterDetailMenuItem{Title = NavMenu.PhoneNumbersPage, TargetPage = NavConstants.PhoneNumbers},
-                new MasterDetailMenuItem{Title = NavMenu.Logout, TargetPage = null}
+                new MasterDetailMenuItem{Title = NavMenu.Logout, TargetPage = NavConstants.Login}
             };
         }
     }

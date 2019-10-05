@@ -7,7 +7,7 @@ namespace NewBeeProject.Models
 {
    public class Student
        {
-        [JsonProperty(PropertyName ="activo")]
+        [JsonProperty(PropertyName ="active")]
         public bool Active { get; set; } = true;
 
 
