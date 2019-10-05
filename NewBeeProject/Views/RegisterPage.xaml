@@ -24,7 +24,7 @@
                    Keyboard="Email"
                    Margin="20,0" />
             <Entry Placeholder="Student ID"
-                   Text="{Binding RegisteredStudent.UserID}"
+                   Text="{Binding RegisteredStudent.StudentID}"
                    x:Name="IDEntry"
                    Margin="20,0" />
             <Entry Placeholder="Password"
