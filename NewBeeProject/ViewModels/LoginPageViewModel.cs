@@ -1,4 +1,5 @@
-﻿using NewBeeProject.Services;
+﻿using NewBeeProject.Models;
+using NewBeeProject.Services;
 using Prism.Commands;
 using Prism.Navigation;
 using System;
@@ -21,14 +22,23 @@ namespace NewBeeProject.ViewModels
                  
                   if(!string.IsNullOrEmpty(UserID) || !string.IsNullOrEmpty(Password))
                   {
-                      if (await APIservice.CheckLogin(UserID, Password))
+                      Student LoggedStudent = await APIservice.CheckLogin(UserID, Password);
+                      if (!LoggedStudent.Equals(null))
                       {
-                         
+                          string[] CoursesID = LoggedStudent.CoursesID.Split(',');
+                          LoggedStudent.StudentCoursesList = new List<Course>();
+                          foreach(string CourseID in CoursesID)
+                          {
+                              LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(CourseID));
+                          }
                           await AbsoluteGoToHome();
                       }
-
-                      //TODO: Incorrect password error message
+                      
+                      // TODO: Login Error
                   }
+
+
+                  //TODO: Incorrect login error message
               });
 
             NavRegisterCommand = new DelegateCommand(async () =>

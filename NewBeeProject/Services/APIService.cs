@@ -11,16 +11,16 @@ namespace NewBeeProject.Services
     {
         NetworkAccess CurrentConnection = Connectivity.NetworkAccess;
         INewBeeAPI ApiResponse = RestService.For<INewBeeAPI>(Config.APIURL);
-        async public Task<bool> CheckLogin(string UserID, string InsertedPassword)
+        async public Task<Student> CheckLogin(string UserID, string InsertedPassword)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
                 var StudentResult = await ApiResponse.GetStudent(UserID);
-                return (StudentResult.Password == InsertedPassword);
+                return (StudentResult.Password == InsertedPassword ? StudentResult : null);
             }
 
             //TODO: Display "No internet' message and go back
-            return false;
+            return null;
         }
 
         async public Task<bool> RegisterStudent(Student NewStudent)

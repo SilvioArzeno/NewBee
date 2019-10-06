@@ -11,7 +11,7 @@ namespace NewBeeProject.Services
     [Headers("Content-Type: application/json")]
     public interface IAPIService
     {
-       Task<bool> CheckLogin(string matricula, string InsertedPassword);
+       Task<Student> CheckLogin(string matricula, string InsertedPassword);
 
         Task<bool> RegisterStudent(Student NewStudent);
 
