@@ -1,4 +1,5 @@
-﻿using NewBeeProject.Services;
+﻿using NewBeeProject.Models;
+using NewBeeProject.Services;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,11 @@ namespace NewBeeProject.ViewModels
         {
             await _navigationService.GoBackAsync();
         }
-        public async Task AbsoluteGoToHome()
+        public async Task AbsoluteGoToHome(Student LoggedStudent)
         {
-            await _navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute));
-        }
-        public async Task GoToRegistration()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
+            NavigationParameters NavParameters = new NavigationParameters();
+            NavParameters.Add("Student",LoggedStudent);
+            await _navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute),NavParameters);
         }
     }
 }

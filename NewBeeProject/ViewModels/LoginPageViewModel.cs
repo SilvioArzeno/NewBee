@@ -25,13 +25,16 @@ namespace NewBeeProject.ViewModels
                       Student LoggedStudent = await APIservice.CheckLogin(UserID, Password);
                       if (!LoggedStudent.Equals(null))
                       {
-                          string[] CoursesID = LoggedStudent.CoursesID.Split(',');
-                          LoggedStudent.StudentCoursesList = new List<Course>();
-                          foreach(string CourseID in CoursesID)
+                          if (!string.IsNullOrEmpty(LoggedStudent.CoursesID))
                           {
-                              LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(CourseID));
+                              string[] CoursesID = LoggedStudent.CoursesID.Split(',');
+                              LoggedStudent.StudentCoursesList = new List<Course>();
+                              foreach (string CourseID in CoursesID)
+                              {
+                                  LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(CourseID));
+                              }
                           }
-                          await AbsoluteGoToHome();
+                          await AbsoluteGoToHome(LoggedStudent);
                       }
                       
                       // TODO: Login Error
@@ -43,7 +46,7 @@ namespace NewBeeProject.ViewModels
 
             NavRegisterCommand = new DelegateCommand(async () =>
             {
-               await GoToRegistration();
+               await navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
             });
         }
     }
