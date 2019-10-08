@@ -28,9 +28,6 @@ namespace NewBeeProject.Models
         [JsonProperty(PropertyName = "password")]
         public string Password { get; set; }
 
-        [JsonProperty(PropertyName = "courses")]
-        public string CoursesID { get; set; } = string.Empty;
-
         [JsonIgnore]
         public List<Course> StudentCoursesList { get; set; }
 

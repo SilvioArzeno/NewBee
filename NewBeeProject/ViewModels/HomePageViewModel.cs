@@ -1,4 +1,5 @@
-﻿using NewBeeProject.Models;
+﻿using MonkeyCache.FileStore;
+using NewBeeProject.Models;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace NewBeeProject.ViewModels
 {
-    public class HomePageViewModel : IInitialize
+    public class HomePageViewModel
     {
         public Student LoggedStudent { get; set; }
 
@@ -15,13 +16,9 @@ namespace NewBeeProject.ViewModels
         public Course SelectedItem { get; set; }
         public HomePageViewModel() 
         {
-           
+            LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
+            CourseList = LoggedStudent.StudentCoursesList;
         }
 
-        public void Initialize(INavigationParameters parameters)
-        {
-                LoggedStudent = parameters["Student"] as Student;
-                CourseList = LoggedStudent.StudentCoursesList;
-        }
     }
 }

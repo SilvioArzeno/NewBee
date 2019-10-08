@@ -1,4 +1,5 @@
-﻿using NewBeeProject.Models;
+﻿using MonkeyCache.FileStore;
+using NewBeeProject.Models;
 using NewBeeProject.Services;
 using Prism.Commands;
 using Prism.Navigation;
@@ -25,7 +26,7 @@ namespace NewBeeProject.ViewModels
                       Student LoggedStudent = await APIservice.CheckLogin(UserID, Password);
                       if (!LoggedStudent.Equals(null))
                       {
-                          if (!string.IsNullOrEmpty(LoggedStudent.CoursesID))
+                         /* if (!string.IsNullOrEmpty(LoggedStudent.CoursesID))
                           {
                               string[] CoursesID = LoggedStudent.CoursesID.Split(',');
                               LoggedStudent.StudentCoursesList = new List<Course>();
@@ -33,8 +34,9 @@ namespace NewBeeProject.ViewModels
                               {
                                   LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(CourseID));
                               }
-                          }
-                          await AbsoluteGoToHome(LoggedStudent);
+                          }*/
+                          Barrel.Current.Add<Student>("LoggedStudent", LoggedStudent, TimeSpan.FromMinutes(20));
+                          await navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute));
                       }
                       
                       // TODO: Login Error

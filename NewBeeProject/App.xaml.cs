@@ -1,4 +1,5 @@
-﻿using NewBeeProject.Services;
+﻿using MonkeyCache.FileStore;
+using NewBeeProject.Services;
 using NewBeeProject.ViewModels;
 using NewBeeProject.Views;
 using Prism;
@@ -15,7 +16,7 @@ namespace NewBeeProject
         protected override void OnInitialized()
         {
             InitializeComponent();
-
+            Barrel.ApplicationId = "NewBeeApp";
             NavigationService.NavigateAsync(NavConstants.Login);
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

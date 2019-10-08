@@ -22,11 +22,10 @@ namespace NewBeeProject.ViewModels
         {
             await _navigationService.GoBackAsync();
         }
-        public async Task AbsoluteGoToHome(Student LoggedStudent)
+
+        public async Task NavigateTo(string TargetPage)
         {
-            NavigationParameters NavParameters = new NavigationParameters();
-            NavParameters.Add("Student",LoggedStudent);
-            await _navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute),NavParameters);
+            await _navigationService.NavigateAsync(TargetPage);
         }
     }
 }
