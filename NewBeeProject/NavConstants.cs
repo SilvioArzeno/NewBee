@@ -31,7 +31,6 @@ namespace NewBeeProject
         public static string AddCoursePage = "Add Course";
         public static string AddTaskPage = "Add Task";
         public static string PhoneNumbersPage = "Area Phone Numbers";
-
         public static string Logout = "Log out";
     }
 }

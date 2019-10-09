@@ -10,12 +10,12 @@
         <StackLayout VerticalOptions="Center">
 
             <Entry Placeholder="First Name"
-                   Text="{Binding RegisteredStudent.Nombres}"
+                   Text="{Binding RegisteredStudent.FirstName}"
                    x:Name="FNameEntry"
                    Margin="20,0" />
             
             <Entry Placeholder="Last Name"
-                   Text="{Binding RegisteredStudent.Apellidos}"
+                   Text="{Binding RegisteredStudent.LastName}"
                    x:Name="LNameEntry"
                    Margin="20,0" />
             <Entry Placeholder="Email"
@@ -24,7 +24,7 @@
                    Keyboard="Email"
                    Margin="20,0" />
             <Entry Placeholder="Student ID"
-                   Text="{Binding RegisteredStudent.Matricula}"
+                   Text="{Binding RegisteredStudent.StudentID}"
                    x:Name="IDEntry"
                    Margin="20,0" />
             <Entry Placeholder="Password"

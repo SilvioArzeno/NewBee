@@ -11,16 +11,14 @@ namespace NewBeeProject.Services
     [Headers("Content-Type: application/json")]
     public interface IAPIService
     {
-        [Get("")]
-        Task VerifyConnection();
+       Task<Student> CheckLogin(string matricula, string InsertedPassword);
 
-        [Post("/student")]
-        Task<string> RegisterStudent([Body] string NewStudent);
+        Task<bool> RegisterStudent(Student NewStudent);
 
-        [Get("/student/{matricula}")]
-        Task<Student> GetStudent(string matricula);
+        Task<bool> RegisterCourse(Course NewCourse);
 
-        
+        Task<Course> GetCourse(string CourseID);
 
+        Task<Directory> GetDirectory(string Area);
     }
 }

@@ -8,5 +8,6 @@ namespace NewBeeProject.Models
     {
         public string Title { get; set; }
         public string TargetPage { get; set; }
+
     }
 }

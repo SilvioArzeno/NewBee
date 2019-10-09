@@ -13,16 +13,20 @@ namespace NewBeeProject.ViewModels
     {
         public Student RegisteredStudent { get; set; }
         public DelegateCommand RegisterStudentCommand { get; set; }
-        public RegisterPageViewModel(INavigationService navigationService) : base(navigationService)
+        public RegisterPageViewModel(INavigationService navigationService,IAPIService APIservice) : base(navigationService , APIservice)
         {
             RegisteredStudent = new Student();
-            APIService service = new APIService();
             RegisterStudentCommand = new DelegateCommand(async () =>
             {
-                if (await service.RegisterStudent(RegisteredStudent))
-                    await AbsoluteGoToHome();
+                if (await APIservice.RegisterStudent(RegisteredStudent))
+                {
+                    await navigationService.GoBackAsync();
+                }
                 else
+                {
+                    //TODO: Display "Registration error' message
                     await GoBack();
+                }
             });
         }
 

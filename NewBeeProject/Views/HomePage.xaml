@@ -7,7 +7,7 @@
              x:Class="NewBeeProject.Views.HomePage">
     <ContentPage.Content>
         <ScrollView>
-            <ListView ItemsSource="{Binding Course}"
+            <ListView ItemsSource="{Binding CourseList}"
                       x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
                       SeparatorColor="{StaticResource Dark}">
