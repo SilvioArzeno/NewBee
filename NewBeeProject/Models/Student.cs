@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using NewBeeProject.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,23 +8,30 @@ namespace NewBeeProject.Models
 {
    public class Student
        {
-        [JsonProperty(PropertyName ="activo")]
+        [JsonProperty(PropertyName ="active")]
         public bool Active { get; set; } = true;
+
+
+        [JsonProperty(PropertyName = "nombres")]
+        public string FirstName { get; set; }
+
         [JsonProperty(PropertyName = "apellidos")]
-        public string Apellidos { get; set; }
+        public string LastName { get; set; }
 
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 
         [JsonProperty(PropertyName = "matricula")]
-        public string Matricula { get; set; }
+        public string StudentID { get; set; }
 
-        [JsonProperty(PropertyName = "nombres")]
-        public string Nombres { get; set; }
 
         [JsonProperty(PropertyName = "password")]
         public string Password { get; set; }
 
+        [JsonIgnore]
+        public List<Course> StudentCoursesList { get; set; }
+
+      
     }
     
 }

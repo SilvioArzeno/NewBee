@@ -33,8 +33,18 @@ namespace NewBeeProject.ViewModels
         }
         async System.Threading.Tasks.Task OnSelectItemAsync(MasterDetailMenuItem MenuItem)
         {
+            if (MenuItem.Title.Equals(NavMenu.Logout))
+                Logout();
+
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{MenuItem.TargetPage}");
         }
+
+       async void Logout()
+        {
+            string test = _navigationService.GetNavigationUriPath();
+            await _navigationService.NavigateAsync($"/{NavConstants.Login}");
+        }
+
         private void MenuItems()
         {
             MasterDetailMenuItems = new ObservableCollection<MasterDetailMenuItem>()
@@ -46,7 +56,7 @@ namespace NewBeeProject.ViewModels
                 new MasterDetailMenuItem{Title = NavMenu.AddCoursePage, TargetPage = NavConstants.AddCourse},
                 new MasterDetailMenuItem{Title = NavMenu.AddTaskPage, TargetPage = NavConstants.AddTask},
                 new MasterDetailMenuItem{Title = NavMenu.PhoneNumbersPage, TargetPage = NavConstants.PhoneNumbers},
-                new MasterDetailMenuItem{Title = NavMenu.Logout, TargetPage = null}
+                new MasterDetailMenuItem{Title = NavMenu.Logout, TargetPage = NavConstants.Login}
             };
         }
     }
