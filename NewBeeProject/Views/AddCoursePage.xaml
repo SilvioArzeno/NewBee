@@ -4,12 +4,67 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.AddCoursePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to AddCoursePage!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="NewBeeProject.Views.AddCoursePage"
+             Title="Add New Course">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="addbtn"
+                     Order="Primary"
+                     Text="ADD"
+                     Priority="0"
+                     Command="{Binding RegisterCourseCommand}" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <SearchBar TextChanged="HandleTextChanged" />
+        <ScrollView>
+            <ListView ItemsSource="{Binding AllCoursesList}"
+                      x:Name="listv"
+                      SelectedItem="{Binding SelectedCourse}"
+                      SeparatorColor="{StaticResource Dark}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="20"
+                                       Margin="10,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding CourseID}" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding CourseName}" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding CourseSection}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="18"
+                                       Margin="10,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding CourseScheduleDays}" />
+                                            <Span Text=" at " />
+                                            <Span Text="{Binding CourseScheduleHours}" />
+                                            <Span Text=" in " />
+                                            <Span Text="{Binding CourseRoom}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="18"
+                                       Margin="10,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Professor:" />
+                                            <Span Text="{Binding CourseTeacher}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </StackLayout>
 </ContentPage>

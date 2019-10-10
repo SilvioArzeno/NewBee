@@ -9,36 +9,45 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
 
+            <Label Text="First Name"
+                   Style="{StaticResource EntryTagLabel}" />
             <Entry Placeholder="First Name"
                    Text="{Binding RegisteredStudent.FirstName}"
-                   x:Name="FNameEntry"
-                   Margin="20,0" />
-            
+                   Margin="10,0" />
+
+            <Label Text="Last Name"
+                   Style="{StaticResource EntryTagLabel}" />
             <Entry Placeholder="Last Name"
                    Text="{Binding RegisteredStudent.LastName}"
-                   x:Name="LNameEntry"
-                   Margin="20,0" />
+                   Margin="10,0" />
+
+            <Label Text="Email"
+                   Style="{StaticResource EntryTagLabel}" />
             <Entry Placeholder="Email"
                    Text="{Binding RegisteredStudent.Email}"
-                   x:Name="EmailEntry"
                    Keyboard="Email"
-                   Margin="20,0" />
+                   Margin="10,0" />
+
+            <Label Text="Student ID"
+                   Style="{StaticResource EntryTagLabel}" />
             <Entry Placeholder="Student ID"
                    Text="{Binding RegisteredStudent.StudentID}"
-                   x:Name="IDEntry"
-                   Margin="20,0" />
+                   Margin="10,0" />
+
+            <Label Text="Password"
+                   Style="{StaticResource EntryTagLabel}" />
             <Entry Placeholder="Password"
                    Text="{Binding RegisteredStudent.Password}"
-                   x:Name="PassWordEntry"
-                   Margin="20,0"
-                   IsPassword="true" />
-            <Entry Placeholder="Confirm Password"
-                   x:Name="ConfirmPasswordEntry"
-                   Margin="20,0"
+                   Margin="10,0"
                    IsPassword="true" />
 
-            <Button x:Name="RegisterButton"
-                    Style="{StaticResource MainButton}"
+            <Label Text="Confirm Password"
+                   Style="{StaticResource EntryTagLabel}" />
+            <Entry Placeholder="Confirm Password"
+                   Margin="10,0"
+                   IsPassword="true" />
+
+            <Button Style="{StaticResource MainButton}"
                     Text="Register"
                     Command="{Binding RegisterStudentCommand}" />
 

@@ -7,45 +7,41 @@
              x:Class="NewBeeProject.Views.HomePage">
     <ContentPage.Content>
         <ScrollView>
-            <ListView ItemsSource="{Binding CourseList}"
+            <ListView ItemsSource="{Binding StudentCourseList}"
                       x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
                       SeparatorColor="{StaticResource Dark}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1" />
-                                    <ColumnDefinition Width="3" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="BindArea"
-                                       TextColor="{StaticResource Primary}"
+                            <StackLayout>
+                                <Label TextColor="{StaticResource Primary}"
                                        FontSize="20"
-                                       VerticalTextAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       Grid.Column="0" />
-                                <StackLayout BindableLayout.ItemsSource="{Binding CourseDays}"
-                                             Orientation="Horizontal"
-                                             Grid.Column="1">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout>
-                                                <Label Text="BindDay"
-                                                       TextColor="{StaticResource Dark}"
-                                                       FontSize="20"
-                                                       VerticalTextAlignment="Center"
-                                                       Margin="10,0,0,0" />
-                                                <Label Text="BindHour"
-                                                       TextColor="{StaticResource Dark}"
-                                                       FontSize="16"
-                                                       VerticalTextAlignment="Center"
-                                                       Margin="10,0,0,0" />
-                                            </StackLayout>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                            </Grid>
+                                       Margin="10,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding CourseID}" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding CourseName}" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding CourseSection}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="18"
+                                       Margin="10,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding CourseScheduleDays}" />
+                                            <Span Text=" at " />
+                                            <Span Text="{Binding CourseScheduleHours}" />
+                                            <Span Text=" in " />
+                                            <Span Text="{Binding CourseRoom}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

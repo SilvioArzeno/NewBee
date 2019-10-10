@@ -43,7 +43,7 @@
                     Value="{StaticResource Dark}" />
         </Style>
 
-        <Style x:Key="ProfileLabel"
+        <Style x:Key="EntryTagLabel"
                TargetType="Label">
             <Setter Property="TextColor"
                     Value="{StaticResource Primary}"/>
@@ -52,7 +52,7 @@
             <Setter Property="FontAttributes"
                     Value="Bold" />
             <Setter Property="Margin"
-                    Value="10,0" />
+                    Value="10,10,10,0" />
         </Style>
 
     </Application.Resources>

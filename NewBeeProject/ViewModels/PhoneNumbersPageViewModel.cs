@@ -1,25 +1,19 @@
-﻿using Prism.Commands;
+﻿using NewBeeProject.Models;
+using Prism.Commands;
+using Prism.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
 namespace NewBeeProject.ViewModels
 {
     public class PhoneNumbersPageViewModel
     {
-        //Put model name in all "AreaPhones"
-
-        //AreaPhones PhoneSelected;
-
-        //public DelegateCommand CallCommand { get; set; }
-
-        public PhoneNumbersPageViewModel()
+        public DelegateCommand<Directory> CallCommand { get; set; }
+        public PhoneNumbersPageViewModel(IDeviceService deviceService)
         {
-            //CallCommand = new DelegateCommand<AreaPhones>((param) =>
-            //{
-            //    Device.OpenUri(new Uri(String.Format("tel:{0}", $"{param.Phone}")));
-            //});
+            CallCommand = new DelegateCommand<Directory>((param) =>
+            {
+                deviceService.OpenUri(new Uri(uriString: $"tel:{$"{param.AreaPhoneNumber}"}"));
+            });
         }
     }
 }
