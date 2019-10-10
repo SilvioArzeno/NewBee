@@ -8,20 +8,20 @@
     <ScrollView>
         <StackLayout VerticalOptions="Center">
 
-            <Entry Placeholder="Student ID"
-                   x:Name="StudentIDEntry"
+            <Entry Placeholder="User ID"
                    Text="{Binding UserID}"
-                   Margin="20,0"/>
+                   Margin="20,0" />
 
             <Entry Placeholder="Password"
+                   x:Name="password"
                    Text="{Binding Password}"
                    Margin="20,0"
                    IsPassword="true" />
 
-            <Button
+            <Button x:Name="loginbtn"
                     Style="{StaticResource MainButton}"
                     Text="Login"
-                    Command="{Binding LoginCommand}"/>
+                    Command="{Binding LoginCommand}" />
 
             <Label VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
