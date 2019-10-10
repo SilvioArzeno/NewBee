@@ -23,6 +23,6 @@ namespace NewBeeProject.Models
         public string AreaSupervisor { get; set; }
 
         [JsonProperty(PropertyName = "telefono")]
-        public string AreaPhonenumber { get; set; }
+        public string AreaPhoneNumber { get; set; }
     }
 }
