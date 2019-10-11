@@ -31,7 +31,6 @@
                              Grid.Row="1"
                              Spacing="15">
                     <ListView ItemsSource="{Binding MasterDetailMenuItems}"
-                              x:Name="listv"
                               SelectedItem="{Binding SelectedMenuItem}"
                               SeparatorColor="{StaticResource Dark}">
                         <ListView.ItemTemplate>

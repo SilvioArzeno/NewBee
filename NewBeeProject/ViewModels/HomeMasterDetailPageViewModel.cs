@@ -6,7 +6,9 @@ namespace NewBeeProject.ViewModels
 {
     public class HomeMasterDetailPageViewModel
     {
-        INavigationService _navigationService;
+        public INavigationService _navigationService;
+        
+        public ObservableCollection<MasterDetailMenuItem> MasterDetailMenuItems { get; set; }
 
         MasterDetailMenuItem MenuItem;
         public MasterDetailMenuItem SelectedMenuItem
@@ -19,7 +21,6 @@ namespace NewBeeProject.ViewModels
                     _ = OnSelectItemAsync(MenuItem);
             }
         }
-        public ObservableCollection<MasterDetailMenuItem> MasterDetailMenuItems { get; set; }
 
         public HomeMasterDetailPageViewModel(INavigationService navigationService)
         {
@@ -37,7 +38,6 @@ namespace NewBeeProject.ViewModels
 
        async void Logout()
         {
-            string test = _navigationService.GetNavigationUriPath();
             await _navigationService.NavigateAsync($"/{NavConstants.Login}");
         }
 
