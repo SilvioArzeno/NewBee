@@ -8,10 +8,7 @@
              Title="Course Detail">
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="{StaticResource Primary}"
-                   FontSize="22"
-                   Margin="10"
-                   FontAttributes="Bold">
+            <Label Style="{StaticResource HeaderLabel}">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="{Binding CurrentCourse.CourseID}" />
@@ -23,7 +20,7 @@
 
             <Label TextColor="{StaticResource Primary}"
                    FontSize="20"
-                   Margin="10,5">
+                   Margin="10,5,10,50">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Section: " />
@@ -32,13 +29,11 @@
                         <Span Text="{Binding CurrentCourse.CourseTeacher}" />
                         <Span Text="&#10;Days: " />
                         <Span Text="{Binding CurrentCourse.CourseScheduleDays}" />
-                        <Span Text=" at: " />
+                        <Span Text="at: " />
                         <Span Text="{Binding CurrentCourse.CourseScheduleHours}" />
-                        <Span Text="&#10;Room:" />
+                        <Span Text="&#10;Room: " />
                         <Span Text="{Binding CurrentCourse.CourseRoom}" />
-                        <Span Text="&#10;For more information about the institute&#10;
-                              contact us any time with the phone numbers of the call button below&#10;
-                              or see the institute map if you are lost." />
+                        <Span Text="&#10;&#10;For more information about the institute&#10;contact us at any time with the phone numbers of the call button below&#10;or see the institute map if you need it." />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
