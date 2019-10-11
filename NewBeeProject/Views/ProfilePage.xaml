@@ -21,7 +21,7 @@
                                Aspect="AspectFill"
                                WidthRequest="85"
                                HeightRequest="85" />
-                        <Label Text="Name"
+                        <Label Text="{Binding LoggedStudent.FirstName}"
                                TextColor="White"
                                FontSize="Large"
                                FontAttributes="Bold" />
@@ -30,30 +30,26 @@
                 <StackLayout Grid.Row="1">
                     <Label Text="First Name"
                            Style="{StaticResource EntryTagLabel}"/>
-                    <Entry Text="{Binding RegisteredStudent.Nombres}"
-                           x:Name="FNameEntry"
+                    <Entry Text="{Binding LoggedStudent.FirstName}"
                            Margin="10,0"
                            IsEnabled="False"/>
 
                     <Label Text="Last Name"
                            Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding RegisteredStudent.Apellidos}"
-                           x:Name="LNameEntry"
+                    <Entry Text="{Binding LoggedStudent.LastName}"
                            Margin="10,0"
                            IsEnabled="False" />
 
                     <Label Text="Email"
                            Style="{StaticResource EntryTagLabel}"/>
-                    <Entry Text="{Binding RegisteredStudent.Email}"
-                           x:Name="EmailEntry"
+                    <Entry Text="{Binding LoggedStudent.Email}"
                            Keyboard="Email"
                            Margin="10,0"
                            IsEnabled="False" />
 
                     <Label Text="Student ID"
                            Style="{StaticResource EntryTagLabel}"/>
-                    <Entry Text="{Binding RegisteredStudent.Matricula}"
-                           x:Name="IDEntry"
+                    <Entry Text="{Binding LoggedStudent.StudentID}"
                            Margin="10,0"
                            IsEnabled="False" />
 

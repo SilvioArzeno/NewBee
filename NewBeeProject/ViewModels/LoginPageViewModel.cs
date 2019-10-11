@@ -26,15 +26,7 @@ namespace NewBeeProject.ViewModels
                       Student LoggedStudent = await APIservice.CheckLogin(UserID, Password);
                       if (!LoggedStudent.Equals(null))
                       {
-                         /* if (!string.IsNullOrEmpty(LoggedStudent.CoursesID))
-                          {
-                              string[] CoursesID = LoggedStudent.CoursesID.Split(',');
-                              LoggedStudent.StudentCoursesList = new List<Course>();
-                              foreach (string CourseID in CoursesID)
-                              {
-                                  LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(CourseID));
-                              }
-                          }*/
+                          LoggedStudent.StudentCoursesList = await APIservice.GetSchedule(UserID);
                           Barrel.Current.Add<Student>("LoggedStudent", LoggedStudent, TimeSpan.FromMinutes(20));
                           await navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute));
                       }
