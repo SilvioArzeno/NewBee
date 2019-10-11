@@ -9,18 +9,13 @@
     <ContentPage.Content>
         <ScrollView>
             <ListView ItemsSource="{Binding StudentCourseList}"
+                      x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
                       SeparatorColor="{StaticResource Dark}"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Command="{Binding Path=BindingContext.OnMoreCommand, Source={x:Reference listv}}" CommandParameter="{Binding .}"
-                                          Text='More'/>
-                                <MenuItem Command="{Binding Path=BindingContext.DeleteCourseCommand, Source={x:Reference listv}}" CommandParameter="{Binding .}" 
-                                          Text="Delete" IsDestructive="True"/>
-                            </ViewCell.ContextActions>
                             <StackLayout>
                                 <Label Style="{StaticResource TopListLabel}">
                                     <Label.FormattedText>
