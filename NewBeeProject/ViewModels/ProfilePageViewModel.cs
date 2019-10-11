@@ -3,9 +3,6 @@ using NewBeeProject.Models;
 using NewBeeProject.Services;
 using Prism.Commands;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NewBeeProject.ViewModels
 {
