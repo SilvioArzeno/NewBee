@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using NewBeeProject.Models;
+using Prism.Services;
 using Refit;
 using Xamarin.Essentials;
 
@@ -12,6 +13,7 @@ namespace NewBeeProject.Services
     {
         NetworkAccess CurrentConnection = Connectivity.NetworkAccess;
         INewBeeAPI ApiResponse = RestService.For<INewBeeAPI>(Config.APIURL);
+        IPageDialogService DialogService;
 
         //Student services
         async public Task<Student> CheckLogin(string UserID, string InsertedPassword)
@@ -22,7 +24,7 @@ namespace NewBeeProject.Services
                 return (StudentResult.Password == InsertedPassword ? StudentResult : null);
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return null;
         }
 
@@ -43,7 +45,7 @@ namespace NewBeeProject.Services
                 }
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return false;
         }
 
@@ -57,7 +59,7 @@ namespace NewBeeProject.Services
                 return ConfirmedStudent;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return null;
         }
 
@@ -70,7 +72,7 @@ namespace NewBeeProject.Services
                 return CourseResult;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return null;
         }
 
@@ -81,7 +83,7 @@ namespace NewBeeProject.Services
                 var CourseResult = await ApiResponse.GetAllCourses();
                 return CourseResult;
             }
-            // No internet
+            await NoInternetAlert();
             return null;
         }
 
@@ -94,7 +96,7 @@ namespace NewBeeProject.Services
                 return DirectoryResult;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return null;
         }
 
@@ -106,7 +108,7 @@ namespace NewBeeProject.Services
                 return DirectoryResult;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return null;
         }
 
@@ -120,7 +122,7 @@ namespace NewBeeProject.Services
                 return RegisteredCourse;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return false;
         }
 
@@ -132,7 +134,7 @@ namespace NewBeeProject.Services
                 return DirectoryResult;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return null;
         }
         async public Task<bool> DeleteSchedule(string UserID, string CourseID)
@@ -143,10 +145,14 @@ namespace NewBeeProject.Services
                 return DeleteCourse;
             }
 
-            //TODO: Display "No internet' message and go back
+            await NoInternetAlert();
             return false;
         }
 
+        async public Task NoInternetAlert()
+        {
+            await App.Current.MainPage.DisplayAlert("No internet", "No internet conenction try again later", "Ok");
+        }
        
     }
  
