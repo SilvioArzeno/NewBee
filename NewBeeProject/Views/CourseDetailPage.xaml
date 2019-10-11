@@ -16,8 +16,6 @@
                         <Span Text="{Binding CurrentCourse.CourseID}" />
                         <Span Text=" - " />
                         <Span Text="{Binding CurrentCourse.CourseName}" />
-                        <Span Text=" - Sec.:" />
-                        <Span Text="{Binding CurrentCourse.CourseSection}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -27,7 +25,9 @@
                    Margin="10,5">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Professor: " />
+                        <Span Text="Section: " />
+                        <Span Text="{Binding CurrentCourse.CourseSection}" />
+                        <Span Text="&#10;Professor: " />
                         <Span Text="{Binding CurrentCourse.CourseTeacher}" />
                         <Span Text="&#10;Days: " />
                         <Span Text="{Binding CurrentCourse.CourseScheduleDays}" />
@@ -35,7 +35,9 @@
                         <Span Text="{Binding CurrentCourse.CourseScheduleHours}" />
                         <Span Text="&#10;Room:" />
                         <Span Text="{Binding CurrentCourse.CourseRoom}" />
-                        <Span Text="&#10;For more information&#10;contact us or see the map&#10;in the buttons below" />
+                        <Span Text="&#10;For more information about the institute&#10;
+                              contact us any time with the phone numbers of the call button below&#10;
+                              or see the institute map if you are lost." />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
