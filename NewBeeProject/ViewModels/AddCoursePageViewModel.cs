@@ -28,18 +28,20 @@ namespace NewBeeProject.ViewModels
 
             RegisterCourseCommand = new DelegateCommand(async () =>
             {
-                var answer = await dialogService.DisplayAlertAsync("Confirm", $"Are you sure you want to add {SelectedCourse.CourseName} to your schedule?", "Yes", "No");
-                if (answer)
+                if (SelectedCourse != null)
                 {
-
-                    if (await APIservice.RegisterCourse(LoggedStudent.StudentID,SelectedCourse.CourseID))
+                    var answer = await dialogService.DisplayAlertAsync("Confirm", $"Are you sure you want to add {SelectedCourse.CourseName} to your schedule?", "Yes", "No");
+                    if (answer)
                     {
-                        LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(SelectedCourse.CourseID));
-                        Barrel.Current.Add<Student>("LoggedStudent", LoggedStudent, TimeSpan.FromMinutes(20));
-                       await dialogService.DisplayAlertAsync("Success!", $"The course {SelectedCourse.CourseName} has been added to your schedule", "Ok");
+
+                        if (await APIservice.RegisterCourse(LoggedStudent.StudentID, SelectedCourse.CourseID))
+                        {
+                            LoggedStudent.StudentCoursesList.Add(await APIservice.GetCourse(SelectedCourse.CourseID));
+                            Barrel.Current.Add<Student>("LoggedStudent", LoggedStudent, TimeSpan.FromMinutes(20));
+                            await dialogService.DisplayAlertAsync("Success!", $"The course {SelectedCourse.CourseName} has been added to your schedule", "Ok");
+                        }
                     }
                 }
-
             });
 
             SearchCourseCommand = new DelegateCommand(() => FilterList(CourseFilter));

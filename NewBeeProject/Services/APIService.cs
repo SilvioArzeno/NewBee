@@ -104,7 +104,8 @@ namespace NewBeeProject.Services
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-                var RegisteredCourse = await ApiResponse.RegisterCourse(UserID,CourseID);
+                Horario NewSchedule = new Horario(UserID, CourseID);
+                var RegisteredCourse = await ApiResponse.RegisterCourse(NewSchedule);
                 return RegisteredCourse;
             }
 

@@ -35,7 +35,7 @@ namespace NewBeeProject.Services
 
 
         [Post("/horario")]
-        Task<bool> RegisterCourse([Body] string StudentID, string CourseID);
+        Task<bool> RegisterCourse([Body] Horario NewSchedule);
 
 
         [Get("/horario/{UserID}")]
