@@ -25,6 +25,8 @@ namespace NewBeeProject.Services
         //Directory endpoint tasks
         Task<Directory> GetDirectory(string Area);
 
+        Task<List<Directory>> GetAllDirectories();
+
         //Schedule endpoint tasks
 
         Task<List<Course>> GetSchedule(string UserID);

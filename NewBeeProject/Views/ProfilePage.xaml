@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.ProfilePage"
-             Title="Profile">
+             x:Class="NewBeeProject.Views.ProfilePage">
     <ContentPage.Content>
         <ScrollView>
             <Grid>

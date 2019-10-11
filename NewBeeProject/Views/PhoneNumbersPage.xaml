@@ -4,12 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.PhoneNumbersPage"
-             Title="Area Phones">
+             x:Class="NewBeeProject.Views.PhoneNumbersPage">
     <ContentPage.Content>
         <ScrollView>
             <ListView x:Name="listv"
-                      ItemsSource="{Binding Directory}"
+                      ItemsSource="{Binding DirectoryList}"
                       SelectedItem="{Binding SelectedPhone}"
                       SeparatorColor="{StaticResource Dark}">
                 <ListView.ItemTemplate>
@@ -37,6 +36,7 @@
                                              HorizontalOptions="Center"
                                              VerticalOptions="CenterAndExpand"
                                              Command="{Binding CallCommand}"
+                                             CommandParameter="{Binding .}"
                                              Grid.Column="2" />
                             </Grid>
                         </ViewCell>

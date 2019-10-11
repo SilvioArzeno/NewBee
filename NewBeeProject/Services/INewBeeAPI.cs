@@ -31,6 +31,9 @@ namespace NewBeeProject.Services
         [Get("/directorio/{Area}")]
         Task<Directory> GetDirectory(string Area);
 
+        [Get("/directorio")]
+        Task<List<Directory>> GetAllDirectories();
+
         //Schedule endpoint
 
 
