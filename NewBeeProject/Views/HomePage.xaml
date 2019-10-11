@@ -9,7 +9,6 @@
     <ContentPage.Content>
         <ScrollView>
             <ListView ItemsSource="{Binding StudentCourseList}"
-                      x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
                       SeparatorColor="{StaticResource Dark}"
                       HasUnevenRows="True">
@@ -17,9 +16,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label TextColor="{StaticResource Primary}"
-                                       FontSize="20"
-                                       Margin="10,5,10,0">
+                                <Label Style="{StaticResource TopListLabel}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseID}" />
@@ -30,9 +27,7 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label TextColor="{StaticResource Primary}"
-                                       FontSize="18"
-                                       Margin="10,0,10,5">
+                                <Label Style="{StaticResource BottomListLabel}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseScheduleDays}" />
