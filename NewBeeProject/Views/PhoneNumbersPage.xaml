@@ -17,7 +17,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Command="{Binding Path=BindingContext.OnMoreCommand, Source={x:Reference listv}}"
+                                <MenuItem Command="{Binding Path=BindingContext.CallCommand, Source={x:Reference listv}}"
                                           CommandParameter="{Binding .}"
                                           Text='Call' />
                             </ViewCell.ContextActions>
