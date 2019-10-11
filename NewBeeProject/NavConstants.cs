@@ -33,4 +33,15 @@ namespace NewBeeProject
         public static string PhoneNumbersPage = "Area Phone Numbers";
         public static string Logout = "Log out";
     }
+    public static class Icons
+    {
+        public static string Home = "ic_home";
+        public static string Profile = "ic_person";
+        public static string Map = "ic_map";
+        public static string Task = "ic_list_alt";
+        public static string AddCourse = "ic_library_add";
+        public static string AddTask = "ic_playlist_add";
+        public static string PhoneNumbers = "ic_contact_phone";
+        public static string LogOut = "ic_logout";
+    }
 }

@@ -14,7 +14,6 @@
                      Command="{Binding RegisterCourseCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <SearchBar TextChanged="HandleTextChanged" />
         <ScrollView>
             <ListView ItemsSource="{Binding AllCoursesList}"
                       x:Name="listv"

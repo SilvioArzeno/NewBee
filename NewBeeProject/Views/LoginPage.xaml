@@ -6,25 +6,27 @@
              mc:Ignorable="d"
              x:Class="NewBeeProject.LoginPage">
     <ScrollView>
-        <StackLayout VerticalOptions="Center">
+        <StackLayout VerticalOptions="FillAndExpand">
+            
+            <Image Source="ic_newbeelogo"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Margin="0,100,0,0"/>
 
             <Entry Placeholder="User ID"
                    Text="{Binding UserID}"
                    Margin="20,0" />
-
 
             <Entry Placeholder="Password"
                    Text="{Binding Password}"
                    Margin="20,0"
                    IsPassword="true" />
 
-            <Button
-                    Style="{StaticResource MainButton}"
+            <Button Style="{StaticResource MainButton}"
                     Text="Login"
                     Command="{Binding LoginCommand}"/>
 
-            <Label VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"
+            <Label HorizontalOptions="CenterAndExpand"
                    Text="Register"
                    TextColor="{StaticResource Primary}"
                    FontSize="20"
