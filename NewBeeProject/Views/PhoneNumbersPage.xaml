@@ -18,9 +18,7 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <StackLayout>
-                                    <Label TextColor="{StaticResource Primary}"
-                                           FontSize="20"
-                                           Margin="10,5,10,0">
+                                    <Label Style="{StaticResource TopListLabel}">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding AreaName}" />
@@ -29,21 +27,17 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label TextColor="{StaticResource Primary}"
-                                           FontSize="18"
-                                           Margin="10,0,10,5">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding AreaDescription}" />
-                                                <Span Text="&#10;Building: " />
-                                                <Span Text="{Binding AreaBuilding}" />
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
+                                    <Label Style="{StaticResource MiddleListLabel}"
+                                           Text="{Binding AreaDescription}" />
+                                    <Label Style="{StaticResource BottomListLabel}"
+                                           Text="{Binding AreaBuilding}" />
                                 </StackLayout>
                                 <ImageButton Source="ic_phone.png"
                                              HorizontalOptions="Center"
                                              VerticalOptions="CenterAndExpand"
+                                             WidthRequest="40"
+                                             HeightRequest="40"
+                                             BackgroundColor="Transparent"
                                              Command="{Binding CallCommand}"
                                              CommandParameter="{Binding .}" />
                             </StackLayout>
