@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using NewBeeProject.Models;
 using Refit;
@@ -89,7 +90,17 @@ namespace NewBeeProject.Services
             return null;
         }
 
+       async public Task<List<Course>> GetSchedule(string UserID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var DirectoryResult = await ApiResponse.GetSchedule(UserID);
+                return DirectoryResult;
+            }
 
+            //TODO: Display "No internet' message and go back
+            return null;
+        }
     }
  
 }

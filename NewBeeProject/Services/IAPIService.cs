@@ -20,5 +20,7 @@ namespace NewBeeProject.Services
         Task<Course> GetCourse(string CourseID);
 
         Task<Directory> GetDirectory(string Area);
+
+        Task<List<Course>> GetSchedule(string UserID);
     }
 }

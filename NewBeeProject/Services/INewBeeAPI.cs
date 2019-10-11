@@ -28,5 +28,8 @@ namespace NewBeeProject.Services
         [Get("/directorio/{Area}")]
         Task<Directory> GetDirectory(string Area);
 
+        [Get("/horario/{UserID}")]
+        Task<List<Course>> GetSchedule(string UserID);
+
     }
 }
