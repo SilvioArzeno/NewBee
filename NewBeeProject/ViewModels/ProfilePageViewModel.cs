@@ -1,4 +1,7 @@
-﻿using Prism.Commands;
+﻿using MonkeyCache.FileStore;
+using NewBeeProject.Models;
+using NewBeeProject.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -6,24 +9,14 @@ using System.Text;
 
 namespace NewBeeProject.ViewModels
 {
-    public class ProfilePageViewModel
+    public class ProfilePageViewModel : BaseViewModel
     {
-        INavigationService _navigationService;
-
         public DelegateCommand NavEditPtofileCommand { get; set; }
-
-        public ProfilePageViewModel(INavigationService navigationService)
+        public Student LoggedStudent { get; set; }
+        public ProfilePageViewModel(INavigationService navigationService, APIService APIservice) : base(navigationService,APIservice)
         {
-            _navigationService = navigationService;
-
-            NavEditPtofileCommand = new DelegateCommand(async () =>
-            {
-                await GoToEditProfile();
-            });
-        }
-        async System.Threading.Tasks.Task GoToEditProfile()
-        {
-            await _navigationService.NavigateAsync($"{NavConstants.EditProfile}");
+            NavEditPtofileCommand = new DelegateCommand(async () => { await NavigateTo(NavConstants.EditProfile); });
+            LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
         }
     }
 }
