@@ -29,28 +29,26 @@
                 </Grid>
                 <StackLayout Grid.Row="1">
                     <Label Text="First Name"
-                           Style="{StaticResource ProfileLabel}"/>
+                           Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.FirstName}"
-                           x:Name="FNameEntry"
                            Margin="10,0"
                            IsEnabled="False"/>
 
                     <Label Text="Last Name"
-                           Style="{StaticResource ProfileLabel}" />
+                           Style="{StaticResource EntryTagLabel}" />
                     <Entry Text="{Binding LoggedStudent.LastName}"
-                           x:Name="LNameEntry"
                            Margin="10,0"
                            IsEnabled="False" />
 
                     <Label Text="Email"
-                           Style="{StaticResource ProfileLabel}"/>
+                           Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.Email}"
                            Keyboard="Email"
                            Margin="10,0"
                            IsEnabled="False" />
 
                     <Label Text="Student ID"
-                           Style="{StaticResource ProfileLabel}"/>
+                           Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.StudentID}"
                            Margin="10,0"
                            IsEnabled="False" />
