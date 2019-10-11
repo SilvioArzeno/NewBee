@@ -13,11 +13,11 @@
                    FontAttributes="Bold">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{Binding CourseID}" />
+                        <Span Text="{Binding CurrentCourse.CourseID}" />
                         <Span Text=" - " />
-                        <Span Text="{Binding CourseName}" />
+                        <Span Text="{Binding CurrentCourse.CourseName}" />
                         <Span Text=" - Sec.:" />
-                        <Span Text="{Binding CourseSection}" />
+                        <Span Text="{Binding CurrentCourse.CourseSection}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -28,13 +28,13 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Professor: " />
-                        <Span Text="{Binding CourseTeacher}" />
+                        <Span Text="{Binding CurrentCourse.CourseTeacher}" />
                         <Span Text="&#10;Days: " />
-                        <Span Text="{Binding CourseScheduleDays}" />
+                        <Span Text="{Binding CurrentCourse.CourseScheduleDays}" />
                         <Span Text=" at: " />
-                        <Span Text="{Binding CourseScheduleHours}" />
-                        <Span Text="&#10;Room: CourseRoom" />
-                        <Span Text="{Binding CourseScheduleHours}" />
+                        <Span Text="{Binding CurrentCourse.CourseScheduleHours}" />
+                        <Span Text="&#10;Room:" />
+                        <Span Text="{Binding CurrentCourse.CourseRoom}" />
                         <Span Text="&#10;For more information&#10;contact us or see the map&#10;in the buttons below" />
                     </FormattedString>
                 </Label.FormattedText>

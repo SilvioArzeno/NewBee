@@ -11,7 +11,8 @@ namespace NewBeeProject.ViewModels
     public class HomeMasterDetailPageViewModel
     {
         public INavigationService _navigationService;
-        
+       public Student LoggedStudent { get; set; }
+        public string FullName { get; set; }
         public ObservableCollection<MasterDetailMenuItem> MasterDetailMenuItems { get; set; }
 
         MasterDetailMenuItem MenuItem;
@@ -52,6 +53,8 @@ namespace NewBeeProject.ViewModels
 
         private void MenuItems()
         {
+            LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
+            FullName = $"{LoggedStudent.FirstName} {LoggedStudent.LastName}";
             MasterDetailMenuItems = new ObservableCollection<MasterDetailMenuItem>()
             {
                 new MasterDetailMenuItem{Title = NavMenu.HomePage, TargetPage = NavConstants.Home, Icon = Icons.Home},

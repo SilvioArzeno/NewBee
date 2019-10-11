@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace NewBeeProject.ViewModels
 {
-    public class AddCoursePageViewModel: BaseViewModel, INotifyPropertyChanged
+    public class AddCoursePageViewModel: BaseViewModel
     {
         public Student LoggedStudent { get; set; }
         public string CourseFilter { get; set; }
@@ -21,11 +21,11 @@ namespace NewBeeProject.ViewModels
         public DelegateCommand SearchCourseCommand { get; set; }
         public Course SelectedCourse { get; set; }
 
-        public AddCoursePageViewModel(INavigationService navigationService, IAPIService APIservice, IPageDialogService dialogService) : base(navigationService, APIservice)
+        public AddCoursePageViewModel(INavigationService navigationService, IAPIService APIservice, IPageDialogService dialogService) : base(navigationService)
         {
             LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
             AllCoursesList =new ObservableCollection<Course>(Barrel.Current.Get<List<Course>>("AllCourseList"));
-
+            
             RegisterCourseCommand = new DelegateCommand(async () =>
             {
                 if (SelectedCourse != null)
@@ -47,7 +47,6 @@ namespace NewBeeProject.ViewModels
             SearchCourseCommand = new DelegateCommand(() => FilterList(CourseFilter));
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void FilterList(string courseFilter)
         {

@@ -13,7 +13,7 @@ namespace NewBeeProject.ViewModels
         public Student UpdatedStudent { get; set; }
         
         public DelegateCommand SaveEditedProfileCommand { get; set; }
-        public EditProfilePageViewModel(INavigationService navigationService, IAPIService APIservice) : base(navigationService, APIservice)
+        public EditProfilePageViewModel(INavigationService navigationService, IAPIService APIservice) : base(navigationService)
         {
             LoggedStudent = LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
 

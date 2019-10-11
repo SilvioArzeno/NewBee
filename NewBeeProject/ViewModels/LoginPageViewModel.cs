@@ -15,7 +15,7 @@ namespace NewBeeProject.ViewModels
         public string UserID { get; set; }
         public string Password { get; set; }
         public DelegateCommand NavRegisterCommand { get; set; }
-        public LoginPageViewModel(INavigationService navigationService ,IAPIService APIservice) : base(navigationService,APIservice)
+        public LoginPageViewModel(INavigationService navigationService ,IAPIService APIservice) : base(navigationService)
         {
 
             LoginCommand = new DelegateCommand(async () =>
