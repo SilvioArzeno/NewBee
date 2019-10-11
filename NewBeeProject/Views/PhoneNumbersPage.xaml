@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <ListView x:Name="listv"
-                      ItemsSource="{Binding Directory}"
+                      ItemsSource="{Binding DirectoryList}"
                       SelectedItem="{Binding SelectedPhone}"
                       SeparatorColor="{StaticResource Dark}">
                 <ListView.ItemTemplate>
@@ -36,6 +36,7 @@
                                              HorizontalOptions="Center"
                                              VerticalOptions="CenterAndExpand"
                                              Command="{Binding CallCommand}"
+                                             CommandParameter="{Binding .}"
                                              Grid.Column="2" />
                             </Grid>
                         </ViewCell>
