@@ -14,17 +14,19 @@
                    Margin="0,100,0,0" />
 
             <Entry Placeholder="User ID"
+                   x:Name="UserEntry"
                    Text="{Binding UserID}"
                    Margin="20,0" />
 
             <Entry Placeholder="Password"
+                   x:Name="PassEntry"
                    Text="{Binding Password}"
                    Margin="20,0"
-                   IsPassword="true" />
+                   IsPassword="true"/>
 
             <Button Style="{StaticResource MainButton}"
                     Text="Login"
-                    Command="{Binding LoginCommand}" />
+                    Command="{Binding LoginCommand}"/>
 
             <Label Text="Sign up"
                    HorizontalOptions="CenterAndExpand"
