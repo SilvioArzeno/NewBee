@@ -18,7 +18,6 @@
                    Placeholder="Search by CourseID, Name or Teacher"
                    SearchCommandParameter="{Binding CourseFilter}"
                    />
-
         <ScrollView>
             <ListView ItemsSource="{Binding AllCoursesList}"
                       SelectedItem="{Binding SelectedCourse}"

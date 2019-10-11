@@ -5,8 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NewBeeProject.Views.RegisterPage"
-             NavigationPage.HasBackButton="True">
-    <ContentPage.Content>
+             NavigationPage.HasBackButton="True"
+             Title="Register">
+    
+    <ScrollView>
         <StackLayout VerticalOptions="Center">
 
             <Label Text="First Name"
@@ -52,5 +54,5 @@
                     Command="{Binding RegisterStudentCommand}" />
 
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
