@@ -16,5 +16,6 @@ namespace NewBeeProject.Views
         {
             InitializeComponent();
         }
+
     }
 }

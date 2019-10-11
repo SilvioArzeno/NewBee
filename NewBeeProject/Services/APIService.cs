@@ -124,11 +124,11 @@ namespace NewBeeProject.Services
             //TODO: Display "No internet' message and go back
             return null;
         }
-        async public Task<bool> DeleteCourse(string UserID, string CourseID)
+        async public Task<bool> DeleteSchedule(string UserID, string CourseID)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-                var DeleteCourse = await ApiResponse.DeleteCourse(UserID,CourseID);
+                var DeleteCourse = await ApiResponse.DeleteSchedule(UserID,CourseID);
                 return DeleteCourse;
             }
 

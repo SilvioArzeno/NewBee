@@ -9,7 +9,7 @@ namespace NewBeeProject.ViewModels
     {
         public Student RegisteredStudent { get; set; }
         public DelegateCommand RegisterStudentCommand { get; set; }
-        public RegisterPageViewModel(INavigationService navigationService,IAPIService APIservice) : base(navigationService , APIservice)
+        public RegisterPageViewModel(INavigationService navigationService,IAPIService APIservice) : base(navigationService)
         {
             RegisteredStudent = new Student();
             RegisterStudentCommand = new DelegateCommand(async () =>
