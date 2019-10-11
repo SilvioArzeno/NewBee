@@ -5,10 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NewBeeProject.Views.MapPage">
-    <RelativeLayout Padding="0">
-        <Image Source="ic_intec_map"
-               Aspect="AspectFill"
-               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />
-    </RelativeLayout>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to the map page"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
