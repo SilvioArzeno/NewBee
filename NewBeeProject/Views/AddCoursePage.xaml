@@ -16,6 +16,7 @@
         <SearchBar SearchCommand="{Binding SearchCourseCommand}" 
                    Text="{Binding CourseFilter}"
                    Placeholder="Search by CourseID, Name or Teacher"
+                   SearchCommandParameter="{Binding CourseFilter}"
                    />
 
         <ScrollView>
