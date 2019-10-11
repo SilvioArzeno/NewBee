@@ -7,26 +7,26 @@
              x:Class="NewBeeProject.Views.PhoneNumbersPage">
     <ContentPage.Content>
         <ScrollView>
-            <ListView 
-                          x:Name="listv"
-                          SelectedItem="{Binding SelectedPhone}"
-                          SeparatorColor="{StaticResource Dark}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
+            <ListView x:Name="listv"
+                      ItemsSource="{Binding Directory}"
+                      SelectedItem="{Binding SelectedPhone}"
+                      SeparatorColor="{StaticResource Dark}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2" />
                                     <ColumnDefinition Width="3" />
                                     <ColumnDefinition Width="1" />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="BindArea"
+                                <Label Text="{Binding AreaName}"
                                        TextColor="{StaticResource Primary}"
                                        FontSize="20"
                                        VerticalTextAlignment="Center"
                                        Margin="10,0,0,0"
                                        Grid.Column="0" />
-                                <Label Text="BindAreaPhone"
+                                <Label Text="{Binding AreaPhoneNumber}"
                                        TextColor="{StaticResource Primary}"
                                        FontSize="20"
                                        VerticalTextAlignment="Center"
@@ -39,9 +39,9 @@
                                              Grid.Column="2" />
                             </Grid>
                         </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
