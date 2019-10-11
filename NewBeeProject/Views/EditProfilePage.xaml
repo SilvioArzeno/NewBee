@@ -30,23 +30,23 @@
                 <StackLayout Grid.Row="1">
                     <Label Text="First Name"
                            Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding RegisteredStudent.Nombres}"
+                    <Entry Text="{Binding LoggedStudent.FirstName}"
                            Margin="10,0"/>
 
                     <Label Text="Last Name"
                            Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding RegisteredStudent.Apellidos}"
+                    <Entry Text="{Binding LoggedStudent.LastName}"
                            Margin="10,0"/>
 
                     <Label Text="Email"
                            Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding RegisteredStudent.Email}"
+                    <Entry Text="{Binding LoggedStudent.Email}"
                            Keyboard="Email"
                            Margin="10,0"/>
 
                     <Label Text="Student ID"
                            Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding RegisteredStudent.Matricula}"
+                    <Entry Text="{Binding LoggedStudent.StudentID}"
                            Margin="10,0"/>
 
                     <Button Style="{StaticResource MainButton}"
