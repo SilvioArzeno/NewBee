@@ -18,7 +18,7 @@ namespace NewBeeProject
         public static string CourseDetail = "CourseDetailPage";
         public static string EditProfile = "EditProfilePage";
         public static string PhoneNumbers = "PhoneNumbersPage";
-
+        public static string ForgottenPassword = "ForgottenPasswordPage";
 
         public static string Navigation = "NavigationPage";
     }

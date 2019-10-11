@@ -55,5 +55,54 @@
                     Value="10,10,10,0" />
         </Style>
 
+        <Style x:Key="TopListLabel"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{StaticResource Primary}" />
+            <Setter Property="FontSize"
+                    Value="20" />
+            <Setter Property="Margin"
+                    Value="10,5,10,0" />
+        </Style>
+
+        <Style x:Key="MiddleListLabel"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{StaticResource Primary}" />
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="Margin"
+                    Value="10,0" />
+        </Style>
+
+        <Style x:Key="BottomListLabel"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{StaticResource Primary}" />
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="Margin"
+                    Value="10,0,10,5" />
+        </Style>
+
+        <Style x:Key="HeaderLabel"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{StaticResource Primary}" />
+            <Setter Property="FontSize"
+                    Value="22" />
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+        </Style>
+        <Style x:Key="ProfileLabel"
+               TargetType="Entry">
+            <Setter Property="TextColor" Value="DarkBlue"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+
     </Application.Resources>
 </prism:PrismApplication>

@@ -4,8 +4,6 @@ using NewBeeProject.Services;
 using Prism.Commands;
 using Prism.Navigation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NewBeeProject.ViewModels
 {
@@ -15,6 +13,8 @@ namespace NewBeeProject.ViewModels
         public string UserID { get; set; }
         public string Password { get; set; }
         public DelegateCommand NavRegisterCommand { get; set; }
+        public DelegateCommand NavForgottenPasswordCommand { get; set; }
+
         public LoginPageViewModel(INavigationService navigationService ,IAPIService APIservice) : base(navigationService)
         {
 
@@ -41,6 +41,10 @@ namespace NewBeeProject.ViewModels
             NavRegisterCommand = new DelegateCommand(async () =>
             {
                await navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
+            });
+            NavForgottenPasswordCommand = new DelegateCommand(async () =>
+            {
+                await navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.ForgottenPassword}");
             });
         }
     }

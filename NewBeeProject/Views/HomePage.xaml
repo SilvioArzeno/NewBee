@@ -4,21 +4,26 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.HomePage">
+             x:Class="NewBeeProject.Views.HomePage"
+             Title="Courses">
     <ContentPage.Content>
         <ScrollView>
             <ListView ItemsSource="{Binding StudentCourseList}"
-                      x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
+                      x:Name="listv"
                       SeparatorColor="{StaticResource Dark}"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.OnMoreCommand, Source={x:Reference listv}}" CommandParameter="{Binding .}"
+                                          Text='More'/>
+                                <MenuItem Command="{Binding Path=BindingContext.DeleteCourseCommand, Source={x:Reference listv}}" CommandParameter="{Binding .}" 
+                                          Text="Delete" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
                             <StackLayout>
-                                <Label TextColor="{StaticResource Primary}"
-                                       FontSize="20"
-                                       Margin="10,5,10,0">
+                                <Label Style="{StaticResource TopListLabel}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseID}" />
@@ -29,9 +34,7 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label TextColor="{StaticResource Primary}"
-                                       FontSize="18"
-                                       Margin="10,0,10,5">
+                                <Label Style="{StaticResource BottomListLabel}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseScheduleDays}" />

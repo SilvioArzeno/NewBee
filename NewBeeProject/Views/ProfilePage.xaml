@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.ProfilePage">
+             x:Class="NewBeeProject.Views.ProfilePage"
+             Title="Profile">
     <ContentPage.Content>
         <ScrollView>
             <Grid>
@@ -31,27 +32,23 @@
                     <Label Text="First Name"
                            Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.FirstName}"
-                           Margin="10,0"
-                           IsEnabled="False"/>
+                           Style="{StaticResource ProfileLabel}"/>
 
                     <Label Text="Last Name"
                            Style="{StaticResource EntryTagLabel}" />
                     <Entry Text="{Binding LoggedStudent.LastName}"
-                           Margin="10,0"
-                           IsEnabled="False" />
+                            Style="{StaticResource ProfileLabel}" />
 
                     <Label Text="Email"
                            Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.Email}"
                            Keyboard="Email"
-                           Margin="10,0"
-                           IsEnabled="False" />
+                           Style="{StaticResource ProfileLabel}"/>
 
                     <Label Text="Student ID"
                            Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.StudentID}"
-                           Margin="10,0"
-                           IsEnabled="False" />
+                            Style="{StaticResource ProfileLabel}" />
 
                     <Button Style="{StaticResource MainButton}"
                             Text="Edit Profile"
