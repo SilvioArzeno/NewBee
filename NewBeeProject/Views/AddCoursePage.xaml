@@ -16,17 +16,19 @@
         <SearchBar SearchCommand="{Binding SearchCourseCommand}" 
                    Text="{Binding CourseFilter}"
                    Placeholder="Search by CourseID, Name or Teacher"
-                   SearchCommandParameter="{Binding CourseFilter}"/>
+                   SearchCommandParameter="{Binding CourseFilter}"
+                   />
         <ScrollView>
             <ListView ItemsSource="{Binding AllCoursesList}"
                       SelectedItem="{Binding SelectedCourse}"
-                      SeparatorColor="{StaticResource Dark}"
-                      HasUnevenRows="True">
+                      SeparatorColor="{StaticResource Dark}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Style="{StaticResource TopListLabel}">
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="20"
+                                       Margin="10,0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseID}" />
@@ -37,7 +39,9 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Style="{StaticResource MiddleListLabel}">
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="18"
+                                       Margin="10,0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseScheduleDays}" />
@@ -48,10 +52,12 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Style="{StaticResource BottomListLabel}">
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="18"
+                                       Margin="10,0">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Professor: " />
+                                            <Span Text="Professor:" />
                                             <Span Text="{Binding CourseTeacher}" />
                                         </FormattedString>
                                     </Label.FormattedText>

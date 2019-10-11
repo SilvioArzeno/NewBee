@@ -98,9 +98,20 @@ namespace NewBeeProject.Services
             return null;
         }
 
+        async public Task<List<Directory>> GetAllDirectories()
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var DirectoryResult = await ApiResponse.GetAllDirectories();
+                return DirectoryResult;
+            }
+
+            //TODO: Display "No internet' message and go back
+            return null;
+        }
 
         //Schedule Services
-       async public Task<bool> RegisterCourse(string UserID, string CourseID)
+        async public Task<bool> RegisterCourse(string UserID, string CourseID)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
@@ -136,6 +147,7 @@ namespace NewBeeProject.Services
             return false;
         }
 
+       
     }
  
 }

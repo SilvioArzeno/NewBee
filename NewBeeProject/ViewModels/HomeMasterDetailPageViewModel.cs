@@ -10,6 +10,8 @@ namespace NewBeeProject.ViewModels
 {
     public class HomeMasterDetailPageViewModel
     {
+
+        public APIService _service { get; set; }
         public INavigationService _navigationService;
        public Student LoggedStudent { get; set; }
         public string FullName { get; set; }
@@ -27,9 +29,10 @@ namespace NewBeeProject.ViewModels
             }
         }
 
-        public HomeMasterDetailPageViewModel(INavigationService navigationService)
+        public HomeMasterDetailPageViewModel(INavigationService navigationService, APIService service)
         {
             _navigationService = navigationService;
+            _service = service;
             LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
             FullName = $"{LoggedStudent.FirstName} {LoggedStudent.LastName}";
             MenuItems();
@@ -40,9 +43,13 @@ namespace NewBeeProject.ViewModels
                 Logout();
             if (MenuItem.Title.Equals(NavMenu.AddCoursePage))
             {
-                APIService service = new APIService();
-                Barrel.Current.Add<List<Course>>("AllCourseList", await service.GetAllCourses(),TimeSpan.FromMinutes(20));
+                Barrel.Current.Add<List<Course>>("AllCourseList", await _service.GetAllCourses(),TimeSpan.FromMinutes(20));
             }
+            if (MenuItem.Title.Equals(NavMenu.PhoneNumbersPage))
+            {
+                Barrel.Current.Add<List<Directory>>("AllDirectoriesList", await _service.GetAllDirectories(), TimeSpan.FromMinutes(20));
+            }
+           
 
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{MenuItem.TargetPage}");
         }

@@ -44,7 +44,6 @@ namespace NewBeeProject
             containerRegistry.RegisterForNavigation<CourseDetailPage, CourseDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
             containerRegistry.RegisterForNavigation<PhoneNumbersPage, PhoneNumbersPageViewModel>();
-            containerRegistry.RegisterForNavigation<ForgottenPasswordPage, ForgottenPasswordPageViewModel>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
         }

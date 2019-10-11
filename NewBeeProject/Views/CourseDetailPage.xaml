@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.CourseDetailPage"
-             Title="Course Detail">
+             x:Class="NewBeeProject.Views.CourseDetailPage">
     <ContentPage.Content>
         <StackLayout>
             <Label TextColor="{StaticResource Primary}"
