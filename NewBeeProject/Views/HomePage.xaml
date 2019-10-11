@@ -10,6 +10,7 @@
         <ScrollView>
             <ListView ItemsSource="{Binding StudentCourseList}"
                       SelectedItem="{Binding SelectedCourse}"
+                      x:Name="listv"
                       SeparatorColor="{StaticResource Dark}"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>

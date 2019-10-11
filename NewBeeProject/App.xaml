@@ -96,6 +96,13 @@
             <Setter Property="FontAttributes"
                     Value="Bold" />
         </Style>
+        <Style x:Key="ProfileLabel"
+               TargetType="Entry">
+            <Setter Property="TextColor" Value="DarkBlue"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
 
     </Application.Resources>
 </prism:PrismApplication>

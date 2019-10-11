@@ -26,7 +26,7 @@
                     Text="Login"
                     Command="{Binding LoginCommand}" />
 
-            <Label Text="Sign up here"
+            <Label Text="Sign up"
                    HorizontalOptions="CenterAndExpand"
                    TextColor="{StaticResource Primary}"
                    FontSize="20"
@@ -38,7 +38,7 @@
 
             <Label Text="Recover password"
                    HorizontalOptions="CenterAndExpand"
-                   TextColor="{StaticResource Primary}"
+                   TextColor="Red"
                    FontSize="20"
                    TextDecorations="Underline">
                 <Label.GestureRecognizers>
