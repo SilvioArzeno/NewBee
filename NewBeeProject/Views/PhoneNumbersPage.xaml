@@ -11,7 +11,8 @@
             <ListView x:Name="listv"
                       ItemsSource="{Binding DirectoryList}"
                       SelectedItem="{Binding SelectedPhone}"
-                      SeparatorColor="{StaticResource Dark}">
+                      SeparatorColor="{StaticResource Dark}"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
