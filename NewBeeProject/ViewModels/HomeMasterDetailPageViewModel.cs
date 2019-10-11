@@ -1,5 +1,9 @@
-﻿using NewBeeProject.Models;
+﻿using MonkeyCache.FileStore;
+using NewBeeProject.Models;
+using NewBeeProject.Services;
 using Prism.Navigation;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace NewBeeProject.ViewModels
@@ -32,6 +36,11 @@ namespace NewBeeProject.ViewModels
         {
             if (MenuItem.Title.Equals(NavMenu.Logout))
                 Logout();
+            if (MenuItem.Title.Equals(NavMenu.AddCoursePage))
+            {
+                APIService service = new APIService();
+                Barrel.Current.Add<List<Course>>("AllCourseList", await service.GetAllCourses(),TimeSpan.FromMinutes(20));
+            }
 
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{MenuItem.TargetPage}");
         }

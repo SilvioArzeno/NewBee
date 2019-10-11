@@ -16,10 +16,13 @@ namespace NewBeeProject.Services
         [Get("/student/{UserID}")]
         Task<Student> GetStudent(string UserID);
 
-        //Course endpoint
-        [Post("/materia")]
-        Task RegisterCourse([Body] Course NewCourse);
+        [Put("/student/{UserID}")]
+        Task<Student> UpdateStudent(string UserID, [Body] Student UpdatedStudent);
 
+        //Course endpoint
+
+        [Get("/materia")]
+        Task<List<Course>> GetAllCourses();
         [Get("/materia/{CourseID}")]
         Task<Course> GetCourse(string CourseID);
 
@@ -28,8 +31,18 @@ namespace NewBeeProject.Services
         [Get("/directorio/{Area}")]
         Task<Directory> GetDirectory(string Area);
 
+        //Schedule endpoint
+
+
+        [Post("/horario")]
+        Task<bool> RegisterCourse([Body] string StudentID, string CourseID);
+
+
         [Get("/horario/{UserID}")]
         Task<List<Course>> GetSchedule(string UserID);
 
+
+        [Delete("/horario/{UserID}/{CourseID}")]
+        Task<bool> DeleteCourse(string UserID, string CourseID);
     }
 }
