@@ -43,6 +43,6 @@ namespace NewBeeProject.Services
 
 
         [Delete("/horario/{UserID}/{CourseID}")]
-        Task<bool> DeleteCourse(string UserID, string CourseID);
+        Task<bool> DeleteSchedule(string UserID, string CourseID);
     }
 }

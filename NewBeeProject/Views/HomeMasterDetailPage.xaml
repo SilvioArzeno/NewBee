@@ -21,7 +21,7 @@
                                Aspect="AspectFill"
                                WidthRequest="85"
                                HeightRequest="85" />
-                        <Label Text="Name"
+                        <Label Text="{Binding LoggedStudent.FullName}"
                                TextColor="White"
                                FontSize="Large"
                                FontAttributes="Bold" />

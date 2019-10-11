@@ -15,6 +15,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.OnMoreCommand, Source={x:Reference listv}}" CommandParameter="{Binding .}"
+                                          Text='More'/>
+                                <MenuItem Command="{Binding Path=BindingContext.DeleteCourseCommand, Source={x:Reference listv}}" CommandParameter="{Binding .}" 
+                                          Text="Delete" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
                             <StackLayout>
                                 <Label TextColor="{StaticResource Primary}"
                                        FontSize="20"

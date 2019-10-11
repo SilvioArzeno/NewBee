@@ -21,7 +21,7 @@
                                Aspect="AspectFill"
                                WidthRequest="85"
                                HeightRequest="85" />
-                        <Label Text="Name"
+                        <Label Text="{Binding LoggedStudent.FirstName}"
                                TextColor="White"
                                FontSize="Large"
                                FontAttributes="Bold" />
@@ -29,28 +29,33 @@
                 </Grid>
                 <StackLayout Grid.Row="1">
                     <Label Text="First Name"
-                           Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding LoggedStudent.FirstName}"
+                           Style="{StaticResource EntryTagLabel}"/>
+                    <Entry Placeholder="{Binding LoggedStudent.FirstName}"
+                           Text="{Binding UpdatedStudent.FirstName}"
                            Margin="10,0"/>
 
                     <Label Text="Last Name"
                            Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding LoggedStudent.LastName}"
+                    <Entry Placeholder="{Binding LoggedStudent.LastName}"
+                           Text="{Binding UpdatedStudent.LastName}"
                            Margin="10,0"/>
 
                     <Label Text="Email"
-                           Style="{StaticResource EntryTagLabel}" />
-                    <Entry Text="{Binding LoggedStudent.Email}"
+                           Style="{StaticResource EntryTagLabel}"/>
+                    <Entry Placeholder="{Binding LoggedStudent.Email}"
+                           Text="{Binding UpdatedStudent.Email}"
                            Keyboard="Email"
                            Margin="10,0"/>
 
                     <Label Text="Student ID"
-                           Style="{StaticResource EntryTagLabel}" />
+                           Style="{StaticResource EntryTagLabel}"/>
                     <Entry Text="{Binding LoggedStudent.StudentID}"
-                           Margin="10,0"/>
+                           Margin="10,0"
+                           IsEnabled="False" />
 
                     <Button Style="{StaticResource MainButton}"
-                            Text="Save Profile" />
+                            Text="Save Profile"
+                            Command="{Binding SaveEditedProfileCommand}" />
                 </StackLayout>
             </Grid>
         </ScrollView>

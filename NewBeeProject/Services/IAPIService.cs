@@ -31,7 +31,7 @@ namespace NewBeeProject.Services
 
         Task<bool> RegisterCourse(string UserID, string CourseID);
 
-        Task<bool> DeleteCourse(string UserID, string CourseID);
+        Task<bool> DeleteSchedule(string UserID, string CourseID);
 
     }
 }
