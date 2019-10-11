@@ -7,11 +7,11 @@
              x:Class="NewBeeProject.LoginPage">
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
-
+            
             <Image Source="ic_newbeelogo"
                    HeightRequest="200"
                    WidthRequest="200"
-                   Margin="0,100,0,0" />
+                   Margin="0,100,0,0"/>
 
             <Entry Placeholder="User ID"
                    Text="{Binding UserID}"
@@ -26,23 +26,13 @@
                     Text="Login"
                     Command="{Binding LoginCommand}" />
 
-            <Label Text="Sign up here"
-                   HorizontalOptions="CenterAndExpand"
+            <Label HorizontalOptions="CenterAndExpand"
+                   Text="Register"
                    TextColor="{StaticResource Primary}"
                    FontSize="20"
                    TextDecorations="Underline">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavRegisterCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-
-            <Label Text="Recover password"
-                   HorizontalOptions="CenterAndExpand"
-                   TextColor="{StaticResource Primary}"
-                   FontSize="20"
-                   TextDecorations="Underline">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavForgottenPasswordCommand}" />
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>

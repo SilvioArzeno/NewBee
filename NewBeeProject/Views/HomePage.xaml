@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.HomePage"
-             Title="Courses">
+             x:Class="NewBeeProject.Views.HomePage">
     <ContentPage.Content>
         <ScrollView>
             <ListView ItemsSource="{Binding StudentCourseList}"
+                      x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
                       SeparatorColor="{StaticResource Dark}"
                       HasUnevenRows="True">
@@ -22,7 +22,9 @@
                                           Text="Delete" IsDestructive="True"/>
                             </ViewCell.ContextActions>
                             <StackLayout>
-                                <Label Style="{StaticResource TopListLabel}">
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="20"
+                                       Margin="10,5,10,0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseID}" />
@@ -33,7 +35,9 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Style="{StaticResource BottomListLabel}">
+                                <Label TextColor="{StaticResource Primary}"
+                                       FontSize="18"
+                                       Margin="10,0,10,5">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding CourseScheduleDays}" />
