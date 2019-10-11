@@ -7,20 +7,38 @@
              x:Class="NewBeeProject.Views.CourseDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Bind Course"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"
+            <Label TextColor="{StaticResource Primary}"
                    FontSize="22"
-                   TextColor="{StaticResource Primary}"
-                   FontAttributes="Bold"
-                   Margin="10"/>
-            
-            <Label Text="Bind Description"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"
-                   FontSize="18"
-                   TextColor="{StaticResource Secondary}"
-                   Margin="10" />
+                   Margin="10"
+                   FontAttributes="Bold">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding CourseID}" />
+                        <Span Text=" - " />
+                        <Span Text="{Binding CourseName}" />
+                        <Span Text=" - Sec.:" />
+                        <Span Text="{Binding CourseSection}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label TextColor="{StaticResource Primary}"
+                   FontSize="20"
+                   Margin="10,5">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Professor: " />
+                        <Span Text="{Binding CourseTeacher}" />
+                        <Span Text="&#10;Days: " />
+                        <Span Text="{Binding CourseScheduleDays}" />
+                        <Span Text=" at: " />
+                        <Span Text="{Binding CourseScheduleHours}" />
+                        <Span Text="&#10;Room: CourseRoom" />
+                        <Span Text="{Binding CourseScheduleHours}" />
+                        <Span Text="&#10;For more information&#10;contact us or see the map&#10;in the buttons below" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
             
             <Button Style="{StaticResource MainButton}"
                     Text="View Map"

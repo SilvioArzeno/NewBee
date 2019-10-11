@@ -24,7 +24,7 @@
 
             <Button Style="{StaticResource MainButton}"
                     Text="Login"
-                    Command="{Binding LoginCommand}"/>
+                    Command="{Binding LoginCommand}" />
 
             <Label HorizontalOptions="CenterAndExpand"
                    Text="Register"
