@@ -1,12 +1,18 @@
-﻿using NewBeeProject.Models;
+﻿using MonkeyCache.FileStore;
+using NewBeeProject.Models;
+using NewBeeProject.Services;
 using Prism.Navigation;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace NewBeeProject.ViewModels
 {
     public class HomeMasterDetailPageViewModel
     {
-        INavigationService _navigationService;
+        public INavigationService _navigationService;
+        
+        public ObservableCollection<MasterDetailMenuItem> MasterDetailMenuItems { get; set; }
 
         MasterDetailMenuItem MenuItem;
         public MasterDetailMenuItem SelectedMenuItem
@@ -19,7 +25,6 @@ namespace NewBeeProject.ViewModels
                     _ = OnSelectItemAsync(MenuItem);
             }
         }
-        public ObservableCollection<MasterDetailMenuItem> MasterDetailMenuItems { get; set; }
 
         public HomeMasterDetailPageViewModel(INavigationService navigationService)
         {
@@ -31,13 +36,17 @@ namespace NewBeeProject.ViewModels
         {
             if (MenuItem.Title.Equals(NavMenu.Logout))
                 Logout();
+            if (MenuItem.Title.Equals(NavMenu.AddCoursePage))
+            {
+                APIService service = new APIService();
+                Barrel.Current.Add<List<Course>>("AllCourseList", await service.GetAllCourses(),TimeSpan.FromMinutes(20));
+            }
 
             await _navigationService.NavigateAsync($"{NavConstants.Navigation}/{MenuItem.TargetPage}");
         }
 
        async void Logout()
         {
-            string test = _navigationService.GetNavigationUriPath();
             await _navigationService.NavigateAsync($"/{NavConstants.Login}");
         }
 

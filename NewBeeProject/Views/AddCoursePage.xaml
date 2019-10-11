@@ -7,16 +7,19 @@
              x:Class="NewBeeProject.Views.AddCoursePage"
              Title="Add New Course">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="addbtn"
+        <ToolbarItem 
                      Order="Primary"
                      Text="ADD"
-                     Priority="0"
                      Command="{Binding RegisterCourseCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
+        <SearchBar SearchCommand="{Binding SearchCourseCommand}" 
+                   Text="{Binding CourseFilter}"
+                   Placeholder="Search by CourseID, Name or Teacher"
+                   SearchCommandParameter="{Binding CourseFilter}"
+                   />
         <ScrollView>
             <ListView ItemsSource="{Binding AllCoursesList}"
-                      x:Name="listv"
                       SelectedItem="{Binding SelectedCourse}"
                       SeparatorColor="{StaticResource Dark}">
                 <ListView.ItemTemplate>

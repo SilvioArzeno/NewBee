@@ -43,7 +43,7 @@
                     Value="{StaticResource Dark}" />
         </Style>
 
-        <Style x:Key="EntryTagLabel"
+        <Style x:Key="ProfileLabel"
                TargetType="Label">
             <Setter Property="TextColor"
                     Value="{StaticResource Primary}"/>
