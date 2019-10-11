@@ -12,6 +12,8 @@ namespace NewBeeProject.Services
     {
         NetworkAccess CurrentConnection = Connectivity.NetworkAccess;
         INewBeeAPI ApiResponse = RestService.For<INewBeeAPI>(Config.APIURL);
+
+        //Student services
         async public Task<Student> CheckLogin(string UserID, string InsertedPassword)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
@@ -46,26 +48,20 @@ namespace NewBeeProject.Services
         }
 
 
-        async public Task<bool> RegisterCourse(Course NewCourse)
+        async public Task<Student> UpdateStudent(string UserID, Student UpdatedStudent)
         {
+
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-                try
-                {
-                    await ApiResponse.RegisterCourse(NewCourse);
-                    return true;
-                }
-                catch (ApiException error)
-                {
-
-                    return false;
-                    // TODO: Error messages for different status codes
-                }
+                var ConfirmedStudent = await ApiResponse.UpdateStudent(UserID,UpdatedStudent);
+                return ConfirmedStudent;
             }
 
             //TODO: Display "No internet' message and go back
-            return false;
+            return null;
         }
+
+        //Course Services
         async public Task<Course> GetCourse(string CourseID)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
@@ -78,7 +74,19 @@ namespace NewBeeProject.Services
             return null;
         }
 
-       async public Task<Directory> GetDirectory(string Area)
+        async public Task<List<Course>> GetAllCourses()
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var CourseResult = await ApiResponse.GetAllCourses();
+                return CourseResult;
+            }
+            // No internet
+            return null;
+        }
+
+        //Directory services
+        async public Task<Directory> GetDirectory(string Area)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
@@ -90,7 +98,21 @@ namespace NewBeeProject.Services
             return null;
         }
 
-       async public Task<List<Course>> GetSchedule(string UserID)
+
+        //Schedule Services
+       async public Task<bool> RegisterCourse(string UserID, string CourseID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var RegisteredCourse = await ApiResponse.RegisterCourse(UserID,CourseID);
+                return RegisteredCourse;
+            }
+
+            //TODO: Display "No internet' message and go back
+            return false;
+        }
+
+        async public Task<List<Course>> GetSchedule(string UserID)
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
@@ -101,6 +123,18 @@ namespace NewBeeProject.Services
             //TODO: Display "No internet' message and go back
             return null;
         }
+        async public Task<bool> DeleteCourse(string UserID, string CourseID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var DeleteCourse = await ApiResponse.DeleteCourse(UserID,CourseID);
+                return DeleteCourse;
+            }
+
+            //TODO: Display "No internet' message and go back
+            return false;
+        }
+
     }
  
 }

@@ -15,7 +15,7 @@ namespace NewBeeProject.ViewModels
         public Student LoggedStudent { get; set; }
         public ProfilePageViewModel(INavigationService navigationService, APIService APIservice) : base(navigationService,APIservice)
         {
-            NavEditPtofileCommand = new DelegateCommand(async () => { await NavigateTo(NavConstants.EditProfile,true); });
+            NavEditPtofileCommand = new DelegateCommand(async () => { await NavigateTo(NavConstants.EditProfile, true); });
             LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
         }
     }
