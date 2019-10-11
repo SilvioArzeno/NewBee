@@ -15,6 +15,8 @@ namespace NewBeeProject.ViewModels
         public string UserID { get; set; }
         public string Password { get; set; }
         public DelegateCommand NavRegisterCommand { get; set; }
+        public DelegateCommand NavForgottenPasswordCommand { get; set; }
+
         public LoginPageViewModel(INavigationService navigationService ,IAPIService APIservice) : base(navigationService,APIservice)
         {
 
@@ -41,6 +43,10 @@ namespace NewBeeProject.ViewModels
             NavRegisterCommand = new DelegateCommand(async () =>
             {
                await navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.Registration}");
+            });
+            NavForgottenPasswordCommand = new DelegateCommand(async () =>
+            {
+                await navigationService.NavigateAsync($"{NavConstants.Navigation}/{NavConstants.ForgottenPassword}");
             });
         }
     }
