@@ -23,9 +23,9 @@ namespace NewBeeProject.ViewModels
             await _navigationService.GoBackAsync();
         }
 
-        public async Task NavigateTo(string TargetPage)
+        public async Task NavigateTo(string TargetPage,bool Modal)
         {
-            await _navigationService.NavigateAsync(TargetPage);
+            await _navigationService.NavigateAsync($"{TargetPage}");//,null,useModalNavigation:Modal);
         }
     }
 }
