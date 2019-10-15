@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NewBeeProject.Models
 {
-    public class Task
+    public class CollegeTask
     {
         public string TaskName { get; set; }
         public string TaskCourse { get; set; }
