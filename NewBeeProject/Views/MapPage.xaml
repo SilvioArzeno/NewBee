@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NewBeeProject.Views.MapPage">
+             x:Class="NewBeeProject.Views.MapPage"
+             NavigationPage.HasBackButton="True">
     <RelativeLayout Padding="0">
         <Image Source="ic_intec_map"
                Aspect="AspectFill"
