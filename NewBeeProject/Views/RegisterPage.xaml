@@ -43,12 +43,6 @@
                    Margin="10,0"
                    IsPassword="true" />
 
-            <Label Text="Confirm Password"
-                   Style="{StaticResource EntryTagLabel}" />
-            <Entry Placeholder="Confirm Password"
-                   Margin="10,0"
-                   IsPassword="true" />
-
             <Button Style="{StaticResource MainButton}"
                     Text="Register"
                     Command="{Binding RegisterStudentCommand}" />
