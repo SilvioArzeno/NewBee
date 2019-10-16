@@ -8,6 +8,7 @@ namespace NewBeeProject.ViewModels
     {
 
         public Student LoggedStudent { get; set; }
+        public CollegeTask SelectedTask { get; set; }
         public List<CollegeTask> TaskLists { get; set; }
     }
 }
