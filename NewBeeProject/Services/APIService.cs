@@ -13,7 +13,6 @@ namespace NewBeeProject.Services
     {
         NetworkAccess CurrentConnection = Connectivity.NetworkAccess;
         INewBeeAPI ApiResponse = RestService.For<INewBeeAPI>(Config.APIURL);
-        IPageDialogService DialogService;
 
         //Student services
         async public Task<Student> CheckLogin(string UserID, string InsertedPassword)
@@ -32,17 +31,8 @@ namespace NewBeeProject.Services
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-                try
-                {
                     await ApiResponse.RegisterStudent(NewStudent);
                     return true;
-                }
-                catch (ApiException error)
-                {
-
-                    return false;
-                    // TODO: Error messages for different status codes
-                }
             }
 
             await NoInternetAlert();
@@ -149,11 +139,60 @@ namespace NewBeeProject.Services
             return false;
         }
 
+
+       async public Task<CollegeTask> RegisterTask(CollegeTask NewTask)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var TaskResult = await ApiResponse.AddTask(NewTask);
+                return TaskResult;
+            }
+
+            await NoInternetAlert();
+            return null;
+        }
+
+        async public Task<List<CollegeTask>> GetAllTasks(string StudentID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                var TaskList = await ApiResponse.GetTasks(StudentID);
+                return TaskList;
+            }
+
+            await NoInternetAlert();
+            return null;
+        }
+
+       async public Task UpdateTask(string TaskID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                await ApiResponse.UpdateTask(TaskID);
+                return;
+            }
+
+            await NoInternetAlert();
+            return;
+        }
+
+        async public Task DeleteTask(string TaskID)
+        {
+            if (CurrentConnection.Equals(NetworkAccess.Internet))
+            {
+                await ApiResponse.DeleteTask(TaskID);
+                return;
+            }
+
+            await NoInternetAlert();
+            return;
+        }
+
+
         async public Task NoInternetAlert()
         {
             await App.Current.MainPage.DisplayAlert("No internet", "No internet conenction try again later", "Ok");
         }
-       
     }
  
 }

@@ -12,11 +12,11 @@ namespace NewBeeProject.Services
     public interface IAPIService
     {
         //Student endpoint tasks
-       Task<Student> CheckLogin(string matricula, string InsertedPassword);
+       Task<Student> CheckLogin(string StudentID, string InsertedPassword);
 
         Task<bool> RegisterStudent(Student NewStudent);
 
-        Task<Student> UpdateStudent(string UserID,Student UpdatedStudent);
+        Task<Student> UpdateStudent(string StudentID,Student UpdatedStudent);
 
         //Course Endpoint tasks
         Task<List<Course>> GetAllCourses();
@@ -29,11 +29,22 @@ namespace NewBeeProject.Services
 
         //Schedule endpoint tasks
 
-        Task<List<Course>> GetSchedule(string UserID);
+        Task<List<Course>> GetSchedule(string StudentID);
 
-        Task<bool> RegisterCourse(string UserID, string CourseID);
+        Task<bool> RegisterCourse(string StudentID, string CourseID);
 
-        Task<bool> DeleteSchedule(string UserID, string CourseID);
+        Task<bool> DeleteSchedule(string StudentID, string CourseID);
+
+
+        //CollegeTasks endpoint tasks
+
+        Task<CollegeTask> RegisterTask(CollegeTask NewTask);
+
+        Task<List<CollegeTask>> GetAllTasks(string StudentID);
+
+        Task UpdateTask(string TaskID);
+
+        Task DeleteTask(string TaskID);
 
     }
 }
