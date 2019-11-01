@@ -27,7 +27,7 @@ namespace NewBeeProject.ViewModels
                       if (!LoggedStudent.Equals(null))
                       {
                           LoggedStudent.StudentCoursesList = await APIservice.GetSchedule(StudentID);
-                          LoggedStudent.StudentTaskList = await APIservice.GetAllTasks(StudentID)
+                          LoggedStudent.StudentTaskList = await APIservice.GetAllTasks(StudentID);
                           Barrel.Current.Add<Student>("LoggedStudent", LoggedStudent, TimeSpan.FromMinutes(20));
                           await navigationService.NavigateAsync(new Uri($"/{NavConstants.HomeMasterDetail}/{NavConstants.Navigation}/{NavConstants.Home}", UriKind.Absolute));
                       }

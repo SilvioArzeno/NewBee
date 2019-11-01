@@ -21,7 +21,7 @@ namespace NewBeeProject.ViewModels
         public TaskPageViewModel(INavigationService navigationService, IAPIService APIService) : base(navigationService)
         {
             LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
-            
+            TaskList = new ObservableCollection<CollegeTask>(LoggedStudent.StudentTaskList);
         }
     }
 }
