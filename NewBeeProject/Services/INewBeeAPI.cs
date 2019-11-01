@@ -21,31 +21,49 @@ namespace NewBeeProject.Services
 
         //Course endpoint
 
-        [Get("/materia")]
+        [Get("/course")]
         Task<List<Course>> GetAllCourses();
-        [Get("/materia/{CourseID}")]
+        [Get("/course/{CourseID}")]
         Task<Course> GetCourse(string CourseID);
 
 
         //Directory endpoint
-        [Get("/directorio/{Area}")]
+        [Get("/directory/{Area}")]
         Task<Directory> GetDirectory(string Area);
 
-        [Get("/directorio")]
+        [Get("/directory")]
         Task<List<Directory>> GetAllDirectories();
 
         //Schedule endpoint
 
 
-        [Post("/horario")]
+        [Post("/schedule")]
         Task<bool> RegisterCourse([Body] Schedule NewSchedule);
 
 
-        [Get("/horario/{UserID}")]
+        [Get("/schedule/{UserID}")]
         Task<List<Course>> GetSchedule(string UserID);
 
 
-        [Delete("/horario/{UserID}/{CourseID}")]
+        [Delete("/schedule/{UserID}/{CourseID}")]
         Task<bool> DeleteSchedule(string UserID, string CourseID);
+
+
+        // Task Endpoint
+
+        [Post("/tasks")]
+        Task<CollegeTask> AddTask([Body] CollegeTask NewTask);
+
+        [Get("/tasks/<StudentID>")]
+        Task<List<CollegeTask>> GetTasks(string StudentID);
+
+        [Put("/tasks/<TaskID>")]
+        Task UpdateTask(string TaskID);
+
+        [Delete("/tasks/<TaskID>")]
+
+        Task DeleteTask(string TaskID);
+
+
     }
 }
