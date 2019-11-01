@@ -15,7 +15,7 @@
 
             <Entry Placeholder="User ID"
                    x:Name="UserEntry"
-                   Text="{Binding UserID}"
+                   Text="{Binding StudentID}"
                    Margin="20,0" />
 
             <Entry Placeholder="Password"

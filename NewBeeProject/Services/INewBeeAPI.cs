@@ -54,13 +54,13 @@ namespace NewBeeProject.Services
         [Post("/tasks")]
         Task<CollegeTask> AddTask([Body] CollegeTask NewTask);
 
-        [Get("/tasks/<StudentID>")]
+        [Get("/tasks/{StudentID}")]
         Task<List<CollegeTask>> GetTasks(string StudentID);
 
-        [Put("/tasks/<TaskID>")]
+        [Put("/tasks/{TaskID}")]
         Task UpdateTask(string TaskID);
 
-        [Delete("/tasks/<TaskID>")]
+        [Delete("/tasks/{TaskID}")]
 
         Task DeleteTask(string TaskID);
 
