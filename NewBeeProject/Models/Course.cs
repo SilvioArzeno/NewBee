@@ -12,8 +12,8 @@ namespace NewBeeProject.Models
 
         public string CourseRoom { get; set; }
 
-        public string CourseScheduleDays { get; set; }
-        public string CourseScheduleHours { get; set; }
+        public string ScheduleDays { get; set; }
+        public string ScheduleHours { get; set; }
         public string CourseTeacher { get; set; }
     }
 }
