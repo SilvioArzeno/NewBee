@@ -7,6 +7,7 @@
              x:Class="NewBeeProject.Views.TaskPage"
              Title="Tasks">
     <ContentPage.Content>
+        <AbsoluteLayout>
         <ListView ItemsSource="{Binding TaskList}"
                   SelectedItem="{Binding SelectedTask}">
             <ListView.ItemTemplate>
@@ -20,6 +21,12 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+          </ListView>
+            <ImageButton Source="ic_library_add"
+                         BackgroundColor="Transparent"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds=".95,.95,80,80"
+                         Command="{Binding AddTaskCommand}"/>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
