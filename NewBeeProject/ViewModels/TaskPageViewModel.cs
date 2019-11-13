@@ -1,6 +1,7 @@
 ﻿using MonkeyCache.FileStore;
 using NewBeeProject.Models;
 using NewBeeProject.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,14 @@ namespace NewBeeProject.ViewModels
 
         public Student LoggedStudent { get; set; }
 
+        public DelegateCommand AddTaskCommand { get; set; }
+
 
         public TaskPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             LoggedStudent = Barrel.Current.Get<Student>("LoggedStudent");
             TaskList = new ObservableCollection<CollegeTask>(LoggedStudent.StudentTaskList);
+            AddTaskCommand = new DelegateCommand(async () => { await NavigateTo(NavConstants.AddTask, true); });
         }
     }
 }

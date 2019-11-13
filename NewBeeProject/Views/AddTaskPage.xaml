@@ -5,7 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NewBeeProject.Views.AddTaskPage"
-             Title="New Task">
+             Title="New Task"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.HasNavigationBar="True">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to AddTaskPage!"

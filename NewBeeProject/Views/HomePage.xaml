@@ -37,9 +37,9 @@
                                 <Label Style="{StaticResource BottomListLabel}">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="{Binding CourseScheduleDays}" />
+                                            <Span Text="{Binding ScheduleDays}" />
                                             <Span Text=" at " />
-                                            <Span Text="{Binding CourseScheduleHours}" />
+                                            <Span Text="{Binding ScheduleHours}" />
                                             <Span Text=" in " />
                                             <Span Text="{Binding CourseRoom}" />
                                         </FormattedString>
