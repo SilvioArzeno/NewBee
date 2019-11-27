@@ -30,6 +30,8 @@ namespace NewBeeProject
 
             //Register Types
             containerRegistry.RegisterSingleton<IAPIService, APIService>();
+
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
   
         }
     }
