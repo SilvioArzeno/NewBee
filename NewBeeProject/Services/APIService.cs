@@ -19,8 +19,12 @@ namespace NewBeeProject.Services
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-                var StudentResult = await ApiResponse.GetStudent(UserID);
-                return (StudentResult.Password == InsertedPassword ? StudentResult : null);
+               if(await  thApiResponse.VerifyStudent(UserID, InsertedPassword))
+                {
+                    return await ApiResponse.GetStudent(UserID);
+                }
+
+                return null;
             }
 
             await NoInternetAlert();

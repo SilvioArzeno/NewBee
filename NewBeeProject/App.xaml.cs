@@ -9,6 +9,7 @@ using Xamarin.Forms;
 
 namespace NewBeeProject
 {
+    [AutoRegisterForNavigation]
     public partial class App : PrismApplication
     {
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
@@ -30,23 +31,6 @@ namespace NewBeeProject
             //Register Types
             containerRegistry.RegisterSingleton<IAPIService, APIService>();
   
-
-            //Register Navigations
-            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
-            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
-            containerRegistry.RegisterForNavigation<HomeMasterDetailPage, HomeMasterDetailPageViewModel>();
-            containerRegistry.RegisterForNavigation<ProfilePage, ProfilePageViewModel>();
-            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
-            containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
-            containerRegistry.RegisterForNavigation<TaskPage, TaskPageViewModel>();
-            containerRegistry.RegisterForNavigation<AddCoursePage, AddCoursePageViewModel>();
-            containerRegistry.RegisterForNavigation<AddTaskPage, AddTaskPageViewModel>();
-            containerRegistry.RegisterForNavigation<CourseDetailPage, CourseDetailPageViewModel>();
-            containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
-            containerRegistry.RegisterForNavigation<PhoneNumbersPage, PhoneNumbersPageViewModel>();
-            containerRegistry.RegisterForNavigation<ForgottenPasswordPage, ForgottenPasswordPageViewModel>();
-
-            containerRegistry.RegisterForNavigation<NavigationPage>();
         }
     }
 }

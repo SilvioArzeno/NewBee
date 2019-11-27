@@ -26,6 +26,9 @@ namespace NewBeeProject.Services
         [Get("/course/{CourseID}")]
         Task<Course> GetCourse(string CourseID);
 
+        [Post("/student/{userID}/{insertedPassword}")]
+        Task<bool> VerifyStudent(string userID, string insertedPassword);
+
 
         //Directory endpoint
         [Get("/directory/{Area}")]

@@ -24,7 +24,7 @@ namespace NewBeeProject.ViewModels
                   if(!string.IsNullOrEmpty(StudentID) || !string.IsNullOrEmpty(Password))
                   {
                       Student LoggedStudent = await APIservice.CheckLogin(StudentID, Password);
-                      if (!LoggedStudent.Equals(null))
+;                      if (!LoggedStudent.Equals(null))
                       {
                           LoggedStudent.StudentCoursesList = await APIservice.GetSchedule(StudentID);
                           LoggedStudent.StudentTaskList = await APIservice.GetAllTasks(StudentID);
