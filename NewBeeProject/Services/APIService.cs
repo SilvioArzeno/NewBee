@@ -19,7 +19,7 @@ namespace NewBeeProject.Services
         {
             if (CurrentConnection.Equals(NetworkAccess.Internet))
             {
-               if(await  thApiResponse.VerifyStudent(UserID, InsertedPassword))
+               if(await ApiResponse.VerifyStudent(UserID, InsertedPassword))
                 {
                     return await ApiResponse.GetStudent(UserID);
                 }
