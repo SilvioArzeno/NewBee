@@ -26,16 +26,16 @@
                                     <Label Style="{StaticResource TopListLabel}">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding AreaName}" />
+                                                <Span Text="{Binding Area}" />
                                                 <Span Text=" - " />
-                                                <Span Text="{Binding DepartmentName}" />
+                                                <Span Text="{Binding Department}" />
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
                                     <Label Style="{StaticResource MiddleListLabel}"
-                                           Text="{Binding AreaDescription}" />
+                                           Text="{Binding Description}" />
                                     <Label Style="{StaticResource BottomListLabel}"
-                                           Text="{Binding AreaBuilding}" />
+                                           Text="{Binding Location}" />
                                 </StackLayout>
                                 <ImageButton Source="ic_phone.png"
                                              HorizontalOptions="Center"

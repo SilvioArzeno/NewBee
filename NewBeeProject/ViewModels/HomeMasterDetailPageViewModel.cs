@@ -68,7 +68,6 @@ namespace NewBeeProject.ViewModels
                 new MasterDetailMenuItem{Title = NavMenu.ProfilePage, TargetPage = NavConstants.Profile, Icon = Icons.Profile},
                 new MasterDetailMenuItem{Title = NavMenu.AddCoursePage, TargetPage = NavConstants.AddCourse, Icon = Icons.AddCourse},
                 new MasterDetailMenuItem{Title = NavMenu.TaskPage, TargetPage = NavConstants.Task, Icon = Icons.Task},
-                new MasterDetailMenuItem{Title = NavMenu.AddTaskPage, TargetPage = NavConstants.AddTask, Icon = Icons.AddTask},
                 new MasterDetailMenuItem{Title = NavMenu.MapPage, TargetPage = NavConstants.Map, Icon = Icons.Map},
                 new MasterDetailMenuItem{Title = NavMenu.PhoneNumbersPage, TargetPage = NavConstants.PhoneNumbers, Icon = Icons.PhoneNumbers},
                 new MasterDetailMenuItem{Title = NavMenu.Logout, TargetPage = NavConstants.Login, Icon = Icons.LogOut}
