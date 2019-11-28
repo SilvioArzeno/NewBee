@@ -31,8 +31,22 @@ namespace NewBeeProject
             //Register Types
             containerRegistry.RegisterSingleton<IAPIService, APIService>();
 
+
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
-  
+            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
+            containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
+            containerRegistry.RegisterForNavigation<TaskPage, TaskPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddCoursePage, AddCoursePageViewModel>();
+            containerRegistry.RegisterForNavigation<AddTaskPage, AddTaskPageViewModel>();
+            containerRegistry.RegisterForNavigation<CourseDetailPage, CourseDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<ProfilePage, ProfilePageViewModel>();
+            containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
+            containerRegistry.RegisterForNavigation<PhoneNumbersPage, PhoneNumbersPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomeMasterDetailPage, HomeMasterDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<ForgottenPasswordPage, ForgottenPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<ChangePasswordPage, ChangePasswordPageViewModel>();
+
         }
     }
 }
